@@ -1,10 +1,9 @@
-import React from "react"
-
+import React from "react";
 
 class Index extends React.Component {
-    render(){
-<div>Welcome Page</div>
-    }
+  render() {
+    return <div>Welcome Page</div>;
+  }
 }
 
-export default Index
+export default Index;
