@@ -14,10 +14,6 @@
     "/about": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
-    ],
-    "/foo": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
     ]
   }
 }
