@@ -1,4 +1,4 @@
-((window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/cv.js"],{
+((window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/about.js"],{
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
@@ -46,10 +46,10 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
-/***/ "./pages/cv.js":
-/*!*********************!*\
-  !*** ./pages/cv.js ***!
-  \*********************/
+/***/ "./pages/about.js":
+/*!************************!*\
+  !*** ./pages/about.js ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -57,7 +57,7 @@ module.exports = function(originalModule) {
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/mr.ball/Documents/coding/udemy/portfolio-bball/portfolio-dependencies/pages/cv.js";
+var _jsxFileName = "/Users/mr.ball/Documents/coding/udemy/portfolio-bball/portfolio-dependencies/pages/about.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -79,18 +79,18 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Cv =
+var About =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Cv, _React$Component);
+  _inherits(About, _React$Component);
 
-  function Cv() {
-    _classCallCheck(this, Cv);
+  function About() {
+    _classCallCheck(this, About);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Cv).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(About).apply(this, arguments));
   }
 
-  _createClass(Cv, [{
+  _createClass(About, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -99,14 +99,14 @@ function (_React$Component) {
           lineNumber: 5
         },
         __self: this
-      }, "I am Cv page");
+      }, "I am about page");
     }
   }]);
 
-  return Cv;
+  return About;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Cv);
+/* harmony default export */ __webpack_exports__["default"] = (About);
     (function (Component, route) {
       if(!Component) return
       if (false) {}
@@ -123,21 +123,21 @@ function (_React$Component) {
           next.router.update(r, Component)
         }
       }
-    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/cv")
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/about")
   
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ }),
 
 /***/ 5:
-/*!***************************!*\
-  !*** multi ./pages/cv.js ***!
-  \***************************/
+/*!******************************!*\
+  !*** multi ./pages/about.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__NEXT_REGISTER_PAGE('/cv', function() {
-module.exports = __webpack_require__(/*! ./pages/cv.js */"./pages/cv.js");
+__NEXT_REGISTER_PAGE('/about', function() {
+module.exports = __webpack_require__(/*! ./pages/about.js */"./pages/about.js");
 
 return { page: module.exports.default }});
 
@@ -155,4 +155,4 @@ module.exports = dll_0f247e9cceb355cd81a4;
 /***/ })
 
 },[[5,"static/runtime/webpack.js"]]]));;
-//# sourceMappingURL=cv.js.map
+//# sourceMappingURL=about.js.map
