@@ -1,6 +1,6 @@
 import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
-
+import Typed from "react-typed";
 import { Button, Container, Row, Col } from "reactstrap";
 
 class Index extends React.Component {
@@ -42,6 +42,20 @@ class Index extends React.Component {
                     informed, collaborate and discover projects I was working on
                     through the years!
                   </h1>
+                </div>
+                <div>
+                  <Typed
+                    loop
+                    typeSpeed={70}
+                    backSpeed={70}
+                    strings={["testing", "more testing", "yup"]}
+                    shuffle={false}
+                    backDelay={1000}
+                    loopCount={0}
+                    showCursor
+                    className="self-typed"
+                    cursorChar="|"
+                  />
                 </div>
                 <div className="hero-welcome-bio">
                   <h1>Let's take a look on my work.</h1>
