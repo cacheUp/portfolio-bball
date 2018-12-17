@@ -4,6 +4,18 @@ import Typed from "react-typed";
 import { Button, Container, Row, Col } from "reactstrap";
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.roles = [
+      "Fullstack Developer",
+      "Reactjs",
+      "Nodejs",
+      "GraphQL",
+      "Socket.io",
+      "MongoDB",
+      "SQL"
+    ];
+  }
   render() {
     return (
       <BaseLayout className="cover">
@@ -48,7 +60,7 @@ class Index extends React.Component {
                     loop
                     typeSpeed={70}
                     backSpeed={70}
-                    strings={["testing", "more testing", "yup"]}
+                    strings={this.roles}
                     shuffle={false}
                     backDelay={1000}
                     loopCount={0}
