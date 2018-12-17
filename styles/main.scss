@@ -1,16 +1,8 @@
 @import "./shared/fonts";
+@import "./index";
 
 html,
 body,
 a {
   font-family: "Montserrat";
-}
-
-.customClassFromFile {
-  color: blue;
-  font-family: "Montserrat";
-}
-
-.fromPage {
-  font-size: 50px;
 }

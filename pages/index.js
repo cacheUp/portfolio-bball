@@ -1,7 +1,7 @@
 import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 
-import { Button, Container } from "reactstrap";
+import { Button, Container, Row, Col } from "reactstrap";
 
 class Index extends React.Component {
   render() {
