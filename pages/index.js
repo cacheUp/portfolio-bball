@@ -58,8 +58,8 @@ class Index extends React.Component {
                 <div>
                   <Typed
                     loop
-                    typeSpeed={70}
-                    backSpeed={70}
+                    typeSpeed={60}
+                    backSpeed={60}
                     strings={this.roles}
                     shuffle={false}
                     backDelay={1000}
