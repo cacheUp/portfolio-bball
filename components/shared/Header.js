@@ -1,55 +1,3 @@
-// import React from "react";
-// import Link from "next/link";
-
-// import "../../styles/main.scss";
-
-// class Header extends React.Component {
-//   render() {
-//     return (
-//       <React.Fragment>
-// <Link href="/">
-//   <a style={{ fontSize: "20px" }}> Home </a>
-// </Link>
-
-//         <Link href="/about">
-//           <a> About </a>
-//         </Link>
-
-//         <Link href="/portfolios">
-//           <a> Portfolio </a>
-//         </Link>
-
-//         <Link href="/blogs">
-//           <a> Blog </a>
-//         </Link>
-
-//         <Link href="/cv">
-//           <a> CV </a>
-//         </Link>
-//         <style jsx>
-//           {`
-//             a {
-//               font-size: 20px;
-//             }
-//             .customClass {
-//               color: red;
-//             }
-//           `}
-//         </style>
-//       </React.Fragment>
-//     );
-//   }
-// }
-
-// export default Header;
-const BsNavLink = () => {
-  return (
-    <Link href="/">
-      <a className="nav-link"> Home </a>
-    </Link>
-  );
-};
-
 import React from "react";
 import {
   Collapse,
@@ -61,6 +9,15 @@ import {
   NavLink
 } from "reactstrap";
 import Link from "next/link";
+
+const BsNavLink = props => {
+  const { route, title } = props;
+  return (
+    <Link href={route}>
+      <a className="nav-link"> {title} </a>
+    </Link>
+  );
+};
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -85,14 +42,19 @@ export default class Example extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link href="/">
-                  <a className="nav-link"> Home </a>
-                </Link>
+                <BsNavLink route="/" title="Home" />
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
-                </NavLink>
+                <BsNavLink route="/about" title="About" />
+              </NavItem>
+              <NavItem>
+                <BsNavLink route="/portfolios" title="Portfolio" />
+              </NavItem>
+              <NavItem>
+                <BsNavLink route="/blogs" title="Blogs" />
+              </NavItem>
+              <NavItem>
+                <BsNavLink route="/cv" title="Cv" />
               </NavItem>
             </Nav>
           </Collapse>
