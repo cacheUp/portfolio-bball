@@ -37,8 +37,9 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar
-          className="port-navbar port-default"
-          color="light"
+          className="port-navbar port-default
+          absolute"
+          color="transparent"
           light
           expand="md"
         >
