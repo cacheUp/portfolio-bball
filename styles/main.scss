@@ -6,7 +6,9 @@ body,
 a {
   font-family: "Montserrat";
 }
-
+.clickable {
+  cursor: pointer;
+}
 .self-typed {
   font-size: 31px;
   font-weight: bold;
