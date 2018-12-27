@@ -1,4 +1,5 @@
 import auth0 from "auth0-js";
+import Cookies from "js-cookie";
 
 class Auth {
   constructor() {
@@ -31,7 +32,24 @@ class Auth {
     this.auth0.authorize();
   }
 
-  setSession() {}
+  setSession(authResult) {
+    // Set the time that the Access Token will expire at
+    const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
+    // this.accessToken = authResult.accessToken;
+    this.idToken = authResult.idToken;
+    this.expiresAt = expiresAt;
+    Cookies.set("user", authResult.idTokenPayload);
+    Cookies.set("jwt", authResult.idToken);
+    Cookies.set("expiresAt", expiresAt);
+
+    // navigate to the home route
+  }
+
+  logout() {
+    Cookies.remove("user");
+    Cookies.remove("jwt");
+    Cookies.remove("expiresAt");
+  }
 }
 
 const auth0Client = new Auth();
