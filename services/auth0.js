@@ -12,6 +12,8 @@ class Auth {
     });
     this.login = this.login.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
+    this.logout = this.logout.bind(this);
+    this.isAuthenticated = this.logout.bind(this);
   }
 
   handleAuthentication() {
@@ -49,6 +51,16 @@ class Auth {
     Cookies.remove("user");
     Cookies.remove("jwt");
     Cookies.remove("expiresAt");
+    this.auth0.logout({
+      returnTo: "",
+      clientId: "H5Z2uRcCJFpz2A8JDXEqWh4M91NH5Axl"
+    });
+  }
+  isAuthenticated() {
+    // Check whether the current time is past the
+    // access token's expiry time
+    let expiresAt = Cookies.getJSON("expiresAt");
+    return new Date().getTime() < expiresAt;
   }
 }
 
