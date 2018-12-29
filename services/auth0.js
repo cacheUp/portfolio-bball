@@ -15,7 +15,7 @@ class Auth {
     });
     this.login = this.login.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
+
     this.logout = this.logout.bind(this);
   }
 
@@ -61,12 +61,6 @@ class Auth {
         clientId: "H5Z2uRcCJFpz2A8JDXEqWh4M91NH5Axl"
       });
   }
-  isAuthenticated() {
-    // Check whether the current time is past the
-    // access token's expiry time
-    let expiresAt = Cookies.getJSON("expiresAt");
-    return new Date().getTime() < expiresAt;
-  }
 
   verifyToken(token) {
     if (token) {
@@ -80,12 +74,15 @@ class Auth {
   }
 
   clientAuth() {
+    console.log("hey");
     const token = Cookies.getJSON("jwt");
     const verifiedToken = this.verifyToken(token);
-    return token;
+
+    return verifiedToken;
   }
 
   serverAuth(req) {
+    console.log("hey");
     if (req.headers.cookies) {
       const tokenCookie = req.headers.cookie
         .split(";")
