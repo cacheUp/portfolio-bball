@@ -80,23 +80,30 @@ class Auth {
       let cert = jwk.x5c[0];
       cert = cert.match(/.{1,64}/g).join("\n");
       cert = `-----BEGIN CERTIFICATE-----\n${cert}-----END CERTIFICATE-----\n`;
-      const expiresAt = decodedToken.exp * 1000;
-      return decodedToken && new Date().getTime() < expiresAt
-        ? decodedToken
-        : undefined;
+      //
+      if (jwk.kid === decodedToken.header.kid) {
+        try {
+          const verifiedToken = jwt.verify(token, cert);
+          const expiresAt = verifiedToken.exp * 1000;
+          return verifiedToken && new Date().getTime() < expiresAt
+            ? verifiedToken
+            : undefined;
+        } catch (err) {
+          return undefined;
+        }
+      }
     }
     return undefined;
   }
 
-  clientAuth() {
-    console.log("hey");
+  async clientAuth() {
     const token = Cookies.getJSON("jwt");
-    const verifiedToken = this.verifyToken(token);
+    const verifiedToken = await this.verifyToken(token);
 
     return verifiedToken;
   }
 
-  serverAuth(req) {
+  async serverAuth(req) {
     console.log("hey");
     if (req.headers.cookies) {
       const tokenCookie = req.headers.cookie
@@ -107,7 +114,7 @@ class Auth {
         return undefined;
       }
       const token = tokenCookie.split("=")[1];
-      const verifiedToken = this.verifyToken(token);
+      const verifiedToken = await this.verifyToken(token);
       return verifiedToken;
     }
     return undefined;
