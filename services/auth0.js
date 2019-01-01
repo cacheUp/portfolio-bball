@@ -79,7 +79,7 @@ class Auth {
       //BUILD CERTIFICATE
       let cert = jwk.x5c[0];
       cert = cert.match(/.{1,64}/g).join("\n");
-      cert = `-----BEGIN CERTIFICATE-----\n${cert}-----END CERTIFICATE-----\n`;
+      cert = `-----BEGIN CERTIFICATE-----\n${cert}\n-----END CERTIFICATE-----\n`;
       //
       if (jwk.kid === decodedToken.header.kid) {
         try {
