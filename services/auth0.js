@@ -3,8 +3,6 @@ import Cookies from "js-cookie";
 import jwt from "jsonwebtoken";
 import axios from "axios";
 
-const isClient = typeof window !== "undefined";
-
 class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
@@ -64,11 +62,11 @@ class Auth {
     Cookies.remove("jwt");
     Cookies.remove("expiresAt");
     const auth = this.auth0;
-    isClient &&
-      auth.logout({
-        returnTo: "",
-        clientId: "H5Z2uRcCJFpz2A8JDXEqWh4M91NH5Axl"
-      });
+
+    auth.logout({
+      returnTo: "",
+      clientId: "H5Z2uRcCJFpz2A8JDXEqWh4M91NH5Axl"
+    });
   }
 
   async verifyToken(token) {
@@ -76,15 +74,17 @@ class Auth {
       const decodedToken = jwt.decode(token, { complete: true });
       const jwks = await this.getJWKS();
       const jwk = jwks.keys[0];
-      //BUILD CERTIFICATE
+
+      // BUILD CERTIFICATE
       let cert = jwk.x5c[0];
       cert = cert.match(/.{1,64}/g).join("\n");
       cert = `-----BEGIN CERTIFICATE-----\n${cert}\n-----END CERTIFICATE-----\n`;
-      //
+
       if (jwk.kid === decodedToken.header.kid) {
         try {
           const verifiedToken = jwt.verify(token, cert);
           const expiresAt = verifiedToken.exp * 1000;
+
           return verifiedToken && new Date().getTime() < expiresAt
             ? verifiedToken
             : undefined;
@@ -93,6 +93,7 @@ class Auth {
         }
       }
     }
+
     return undefined;
   }
 
@@ -105,10 +106,10 @@ class Auth {
 
   async serverAuth(req) {
     console.log("hey");
-    if (req.headers.cookies) {
+    if (req.headers.cookie) {
       const tokenCookie = req.headers.cookie
         .split(";")
-        .find(c => c.trim.startsWith("jwt="));
+        .find(c => c.trim().startsWith("jwt="));
 
       if (!tokenCookie) {
         return undefined;

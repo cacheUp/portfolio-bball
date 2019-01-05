@@ -3,6 +3,7 @@ import Header from "../shared/Header";
 
 const BaseLayout = props => {
   const { className, children, isAuthenticated, user } = props;
+
   return (
     <div className="layout-container">
       <Header isAuthenticated={isAuthenticated} user={user} />

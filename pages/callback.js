@@ -11,7 +11,7 @@ class Callback extends React.Component {
   }
   render() {
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage>
           <h1> Verifying Login Data ..</h1>
         </BasePage>
