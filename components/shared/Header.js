@@ -70,7 +70,7 @@ export default class Header extends React.Component {
           expand="md"
         >
           <NavbarBrand className="port-navbar-brand" href="/">
-            Filip Jerga
+            Bradley Ball
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

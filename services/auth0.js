@@ -72,6 +72,9 @@ class Auth {
   async verifyToken(token) {
     if (token) {
       const decodedToken = jwt.decode(token, { complete: true });
+      if (!decodedToken) {
+        return undefined;
+      }
       const jwks = await this.getJWKS();
       const jwk = jwks.keys[0];
 
