@@ -20,7 +20,7 @@ export default function(Component) {
       }
     }
     render() {
-      return <Component {...this.props} />;
+      return this.renderProtectedPage();
     }
   };
 }
