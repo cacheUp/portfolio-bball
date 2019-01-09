@@ -4,12 +4,20 @@ import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 
 class Secret extends React.Component {
+  static getInitialProps() {
+    const superSecretValue = "Super Secret Stuff";
+    return {
+      superSecretValue
+    };
+  }
+
   render() {
+    const { superSecretValue } = this.props;
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage>
           {" "}
-          <h1> I am Secret Page </h1>
+          <h1> {superSecretValue} </h1>
         </BasePage>
       </BaseLayout>
     );
