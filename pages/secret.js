@@ -5,12 +5,9 @@ import withAuth from "../components/hoc/withAuth";
 import axios from "axios";
 
 class Secret extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      secretData: []
-    };
-  }
+  state = {
+    secretData: []
+  };
   static getInitialProps() {
     const superSecretValue = "Super Secret Stuff";
     return {
@@ -40,7 +37,7 @@ class Secret extends React.Component {
   };
   render() {
     const { superSecretValue } = this.props;
-    console.log(this.state);
+
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage>
