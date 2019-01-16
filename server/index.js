@@ -26,6 +26,12 @@ app
       res.json(secretData);
     });
 
+    server.use(function(err, req, res, next) {
+      if (err.name === "UnauthorizedError") {
+        res.status(401).send("invalid token...");
+      }
+    });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });
