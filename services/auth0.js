@@ -108,7 +108,6 @@ class Auth {
   }
 
   async serverAuth(req) {
-    console.log("hey");
     if (req.headers.cookie) {
       const tokenCookie = req.headers.cookie
         .split(";")

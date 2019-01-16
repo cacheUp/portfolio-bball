@@ -28,8 +28,6 @@ export default class MyApp extends App {
 
     return (
       <Container>
-        {console.log(auth)}
-
         <Component {...pageProps} auth={auth} />
       </Container>
     );

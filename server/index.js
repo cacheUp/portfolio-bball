@@ -1,15 +1,27 @@
 const express = require("express");
 const next = require("next");
-const routes = require("./routes");
+const routes = require("../routes");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = routes.getRequestHandler(app);
 
+const secretData = [
+  { title: "SecretData 1", description: "plans to build spaceship" },
+  {
+    title: "SecretData 2",
+    description: "secret passwords"
+  }
+];
+
 app
   .prepare()
   .then(() => {
     const server = express();
+
+    server.get("/api/v1/secret", (req, res) => {
+      res.json(secretData);
+    });
 
     server.get("*", (req, res) => {
       return handle(req, res);
