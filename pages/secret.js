@@ -3,16 +3,18 @@ import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 import axios from "axios";
-import { getSecretData } from "../actions";
+import { getSecretData, getSecretDataServer } from "../actions";
 
 class Secret extends React.Component {
   state = {
     secretData: []
   };
-  static getInitialProps() {
-    const superSecretValue = "Super Secret Stuff";
+  static async getInitialProps() {
+    const anotherSecretData = process.browser
+      ? await getSecretData()
+      : await getSecretDataServer;
     return {
-      superSecretValue
+      anotherSecretData
     };
   }
 

@@ -14,3 +14,9 @@ export const getSecretData = async () => {
     .get("/api/v1/secret", setAuthHeader())
     .then(response => response.data);
 };
+
+export const getSecretDataServer = async () => {
+  return await axios
+    .get("http://localhost/api/v1/secret", setAuthHeader())
+    .then(response => response.data);
+};
