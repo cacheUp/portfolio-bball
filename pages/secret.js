@@ -9,10 +9,9 @@ class Secret extends React.Component {
   state = {
     secretData: []
   };
-  static async getInitialProps() {
-    const anotherSecretData = process.browser
-      ? await getSecretData()
-      : await getSecretDataServer;
+  static async getInitialProps({ req }) {
+    const anotherSecretData = await getSecretData(req);
+
     return {
       anotherSecretData
     };

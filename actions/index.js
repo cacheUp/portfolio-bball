@@ -1,22 +1,18 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { getCookieFromReq } from "../helpers/utils";
 
-const setAuthHeader = () => {
-  const token = Cookies.getJSON("jwt");
+const setAuthHeader = req => {
+  const token = req ? getCookieFromReq(req, "jwt") : Cookies.getJSON("jwt");
   if (token) {
     return { headers: { authorization: `Bearer ${token}` } };
   }
   return undefined;
 };
 
-export const getSecretData = async () => {
+export const getSecretData = async req => {
+  const url = "http://localhost/api/v1/secret";
   return await axios
-    .get("/api/v1/secret", setAuthHeader())
-    .then(response => response.data);
-};
-
-export const getSecretDataServer = async () => {
-  return await axios
-    .get("http://localhost/api/v1/secret", setAuthHeader())
+    .get(url, setAuthHeader(req))
     .then(response => response.data);
 };
