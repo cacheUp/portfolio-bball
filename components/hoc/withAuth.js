@@ -2,7 +2,9 @@ import React from "react";
 import BaseLayout from "../layouts/BaseLayout";
 import BasePage from "../shared/BasePage";
 
-export default function(Component) {
+const namespace = "http://localhost:3000/";
+
+export default function(Component, role) {
   return class withAuth extends React.Component {
     static async getInitialProps(args) {
       const pageProps =
@@ -12,6 +14,7 @@ export default function(Component) {
     }
     renderProtectedPage() {
       const { isAuthenticated, user } = this.props.auth;
+      const userRole = user && user[`${namespace}role`];
       if (isAuthenticated) {
         return <Component {...this.props} />;
       } else {
