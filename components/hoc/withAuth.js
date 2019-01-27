@@ -15,9 +15,16 @@ export default function(Component, role) {
     renderProtectedPage() {
       const { isAuthenticated, user } = this.props.auth;
       const userRole = user && user[`${namespace}role`];
-      if (isAuthenticated) {
-        return <Component {...this.props} />;
+      let isAuthorized = false;
+      if (role) {
+        if (userRole && userRoler === role) {
+          isAuthorized = true;
+        }
       } else {
+        isAuthorized = true;
+      }
+
+      if (!isAuthenticated) {
         return (
           <BaseLayout {...this.props.auth}>
             <BasePage>
@@ -26,8 +33,24 @@ export default function(Component, role) {
             </BasePage>
           </BaseLayout>
         );
+      } else if (!isAuthorized) {
+        return (
+          <BaseLayout {...this.props.auth}>
+            <BasePage>
+              {" "}
+              <h1>
+                {" "}
+                You are not Authorized. You don't have permission to visit this
+                page..{" "}
+              </h1>
+            </BasePage>
+          </BaseLayout>
+        );
+      } else {
+        return <Component {...this.props} />;
       }
     }
+
     render() {
       return this.renderProtectedPage();
     }
