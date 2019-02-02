@@ -23,4 +23,13 @@ a {
 .base-page {
   padding-top: 150px;
   color: white;
+
+  .page-header {
+    .page-header-title {
+      font-weight: 700;
+      color: black;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+  }
 }
