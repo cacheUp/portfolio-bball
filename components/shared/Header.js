@@ -64,7 +64,7 @@ export default class Header extends React.Component {
     return (
       <div>
         <Navbar
-          className="port-navbar port-default absolute"
+          className="port-navbar port-nav-base absolute"
           color="transparent"
           dark
           expand="md"
