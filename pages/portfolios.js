@@ -3,6 +3,15 @@ import BaseLayout from "../components/layouts/BaseLayout";
 import { Link } from "../routes";
 import BasePage from "../components/shared/BasePage";
 import axios from "axios";
+import {
+  Row,
+  Col,
+  Card,
+  CardHeader,
+  CardBody,
+  CardText,
+  CardTitle
+} from "reactstrap";
 
 class Portfolios extends React.Component {
   static async getInitialProps() {
@@ -54,7 +63,7 @@ class Portfolios extends React.Component {
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage className="portfolio-page" title="I am Portfolios Page">
-          <ul>{this.renderPosts(posts)}</ul>
+          <Row>{this.renderPosts(posts)}</Row>
         </BasePage>
       </BaseLayout>
     );
