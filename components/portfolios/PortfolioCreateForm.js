@@ -1,61 +1,63 @@
 import React from "react";
+import { Formik } from "formik";
 
-export default class PortfolioCreateForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "", description: "", language: "" };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-  handleSubmit(event) {
-    alert("A name was submitted: " + this.state.value);
-    event.preventDefault();
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
+const PortfolioCreateForm = () => (
+  <div>
+    <h1>Anywhere in your app!</h1>
+    <Formik
+      initialValues={{ email: "", password: "" }}
+      validate={values => {
+        let errors = {};
+        if (!values.email) {
+          errors.email = "Required";
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = "Invalid email address";
+        }
+        return errors;
+      }}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 400);
+      }}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting
+        /* and other goodies */
+      }) => (
+        <form onSubmit={handleSubmit}>
           <input
-            name="value"
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
+            type="email"
+            name="email"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.email}
           />
-        </label>
-        <label>
-          Description:
-          <textarea
-            name="description"
-            value={this.state.description}
-            onChange={this.handleChangeDescription}
+          {errors.email && touched.email && errors.email}
+          <input
+            type="password"
+            name="password"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.password}
           />
-        </label>
-        <label>
-          Pick your favorite programming:
-          <select
-            name="language"
-            value={this.state.language}
-            onChange={this.handleChangeLanguage}
-          >
-            <option value="javascript">Javascript</option>
-            <option value="java">Java</option>
-            <option selected value="c++">
-              C++
-            </option>
-            <option value="c#">C#</option>
-          </select>
-        </label>
+          {errors.password && touched.password && errors.password}
+          <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button>
+        </form>
+      )}
+    </Formik>
+  </div>
+);
 
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
-}
+export default PortfolioCreateForm;
