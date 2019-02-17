@@ -57,7 +57,7 @@ class Index extends React.Component {
                         <b>{user.name}</b>
                       </span>
                     )}
-                    Welcome to the portfolio website of Filip Jerga. Get
+                    Welcome to the portfolio website of Bradley Ball. Get
                     informed, collaborate and discover projects I was working on
                     through the years!
                   </h1>
