@@ -1,9 +1,10 @@
 import React from "react";
-import { Formik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const PortfolioCreateForm = () => (
+const PortfolioCreateForm = props => (
   <div>
-    <h1>Anywhere in your app!</h1>
+    <button onClick={props.onClick("just some stuff")}>Click Me!</button>
+    <h1>Any place in your app!</h1>
     <Formik
       initialValues={{ email: "", password: "" }}
       validate={values => {
@@ -24,37 +25,16 @@ const PortfolioCreateForm = () => (
         }, 400);
       }}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting
-        /* and other goodies */
-      }) => (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email}
-          />
-          {errors.email && touched.email && errors.email}
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.password}
-          />
-          {errors.password && touched.password && errors.password}
+      {({ isSubmitting }) => (
+        <Form>
+          <Field type="email" name="email" />
+          <ErrorMessage name="email" component="div" />
+          <Field type="password" name="password" />
+          <ErrorMessage name="password" component="div" />
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
-        </form>
+        </Form>
       )}
     </Formik>
   </div>
