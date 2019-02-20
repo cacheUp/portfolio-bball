@@ -1,5 +1,6 @@
 import React from "react";
 import DatePicker from "react-datepicker";
+import { FormGroup, Label } from "reactstrap";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class PortDate extends React.Component {
@@ -23,14 +24,25 @@ export default class PortDate extends React.Component {
 
   render() {
     const { isBrowserLoaded } = this.state;
+    const { label } = this.props;
 
     return (
       <React.Fragment>
         {isBrowserLoaded && (
-          <DatePicker
-            selected={this.state.dateValue}
-            onChange={this.handleChange}
-          />
+          <FormGroup>
+            <Label>{label}</Label>
+            <div className="input-group">
+              <DatePicker
+                selected={this.state.dateValue}
+                onChange={this.handleChange}
+                peekNextMonth
+                showMonthDropdown
+                showYearDropdown
+                maxDate={new Date()}
+                dropdownMode="select"
+              />
+            </div>
+          </FormGroup>
         )}
       </React.Fragment>
     );
