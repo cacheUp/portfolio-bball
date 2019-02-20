@@ -2,7 +2,7 @@
   company: '',
   location: '',
   position: '',
-  description: '', // Text Area
-  startDate: '', // Date
-  endDate: '' // Date
+  description: '', 
+  startDate: '', 
+  endDate: '' 
 }

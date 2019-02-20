@@ -1,17 +1,18 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button, FormGroup, Label } from "reactstrap";
+import PortInput from "../form/PortInput";
 
-const validateInputes = validate => {
+const validateInputs = values => {
   let errors = {};
-  // if (!values.email) {
-  //   errors.email = "Required";
-  // } else if (
-  //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-  // ) {
-  //   errors.email = "Invalid email address";
-  // }
-  // return errors;
+  const keyArray = Object.keys(values);
+  keyArray.forEach(key => {
+    if (!values[key]) {
+      errors[key] = `Field ${key} is required`;
+    }
+  });
+
+  return errors;
 };
 
 const INITIAL_VALUES = {
@@ -29,8 +30,7 @@ const PortfolioCreateForm = () => (
     <h1>Any place in your app!</h1>
     <Formik
       initialValues={INITIAL_VALUES}
-      // validate={
-      //   }
+      validate={validateInputs}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
@@ -40,40 +40,35 @@ const PortfolioCreateForm = () => (
     >
       {({ isSubmitting }) => (
         <Form>
-          <FormGroup>
-            <Label>Title</Label>
-            <Field className="form-control" type="text" name="title" />
-            <ErrorMessage name="title" component="div" />
-          </FormGroup>
+          <Field label="Title" type="text" name="title" component={PortInput} />
 
-          <FormGroup>
-            <Label>Companey</Label>
-            <Field className="form-control" type="text" name="company" />
-            <ErrorMessage name="company" component="div" />
-          </FormGroup>
+          <Field
+            label="Company"
+            type="text"
+            name="company"
+            component={PortInput}
+          />
 
-          <FormGroup>
-            <Label>Location</Label>
-            <Field className="form-control" type="text" name="location" />
-            <ErrorMessage name="location" component="div" />
-          </FormGroup>
+          <Field
+            label="Location"
+            type="text"
+            name="location"
+            component={PortInput}
+          />
 
-          <FormGroup>
-            <Label>Position</Label>
-            <Field className="form-control" type="text" name="position" />
-            <ErrorMessage name="position" component="div" />
-          </FormGroup>
+          <Field
+            label="Postion"
+            type="text"
+            name="position"
+            component={PortInput}
+          />
 
-          <FormGroup>
-            <Label>Description</Label>
-            <Field
-              className="form-control"
-              type="textarea"
-              name="description"
-              component="textarea"
-            />
-            <ErrorMessage name="description" component="div" />
-          </FormGroup>
+          <Field
+            label="Description"
+            type="textarea"
+            name="description"
+            component={PortInput}
+          />
 
           <FormGroup>
             <Label>Start Date</Label>
