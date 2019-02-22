@@ -29,10 +29,15 @@ export default class PortDate extends React.Component {
     setFieldTouched(name, true, true);
   }
 
-  toggleDate() {
+  toggleDate(date) {
+    const { setFieldValue, setFieldTouched } = this.props.form;
+    const { name } = this.props.field;
     this.setState({
       isHidden: !this.state.isHidden
     });
+
+    setFieldValue(name, date, true);
+    setFieldTouched(name, true, true);
   }
 
   render() {
@@ -42,7 +47,7 @@ export default class PortDate extends React.Component {
       form: { touched, errors },
       canBeDisabled
     } = this.props;
-    const { isHidden } = this.state;
+    const { isHidden, dateValue } = this.state;
 
     return (
       <React.Fragment>
@@ -51,7 +56,7 @@ export default class PortDate extends React.Component {
           <div className="input-group">
             {!isHidden && (
               <DatePicker
-                selected={this.state.dateValue}
+                selected={dateValue}
                 onChange={this.handleChange}
                 peekNextMonth
                 showMonthDropdown
@@ -66,6 +71,18 @@ export default class PortDate extends React.Component {
               Still working here...
             </Button>
           )}
+
+          {canBeDisabled && isHidden && (
+            <React.Fragment>
+              <span>Still Working Here</span>
+
+              <Button onClick={() => this.toggleDate(dateValue)}>
+                {" "}
+                Set End Date
+              </Button>
+            </React.Fragment>
+          )}
+
           {touched[field.name] && errors[field.name] && (
             <div className="error">{errors[field.name]}</div>
           )}
