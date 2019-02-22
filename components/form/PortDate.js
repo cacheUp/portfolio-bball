@@ -39,7 +39,8 @@ export default class PortDate extends React.Component {
     const {
       label,
       field,
-      form: { touched, errors }
+      form: { touched, errors },
+      canBeDisabled
     } = this.props;
     const { isHidden } = this.state;
 
@@ -60,7 +61,7 @@ export default class PortDate extends React.Component {
               />
             )}
           </div>
-          {!isHidden && (
+          {!isHidden && canBeDisabled && (
             <Button onClick={() => this.toggleDate()}>
               Still working here...
             </Button>
