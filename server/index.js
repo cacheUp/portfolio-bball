@@ -1,21 +1,17 @@
 const express = require("express");
 const next = require("next");
 const routes = require("../routes");
-
-//Services
 const authService = require("./services/auth");
-
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = routes.getRequestHandler(app);
+const dbConfig = require("./services/dbConfig");
+const mongoose = require("mongoose");
 
-const secretData = [
-  { title: "SecretData 1", description: "plans to build spaceship" },
-  {
-    title: "SecretData 2",
-    description: "secret passwords"
-  }
-];
+mongoose
+  .connect(dbConfig.dbConfig, { useNewUrlParser: true })
+  .then(() => console.log("Database Connected! Woooo"))
+  .catch(err => console.error(err));
 
 app
   .prepare()
