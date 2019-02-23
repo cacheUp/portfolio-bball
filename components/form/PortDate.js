@@ -14,30 +14,28 @@ export default class PortDate extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    this.setState({ isBrowserLoaded: true });
+  setFieldValueAndTouched(date, touched) {
+    const { setFieldValue, setFieldTouched } = this.props.form;
+    const { name } = this.props.field;
+
+    setFieldValue(name, date, true);
+    setFieldTouched(name, touched, true);
   }
 
   handleChange(date) {
-    const { setFieldValue, setFieldTouched } = this.props.form;
-    const { name } = this.props.field;
     this.setState({
       dateValue: date
     });
 
-    setFieldValue(name, date, true);
-    setFieldTouched(name, true, true);
+    this.setFieldValueAndTouched(date, true);
   }
 
   toggleDate(date) {
-    const { setFieldValue, setFieldTouched } = this.props.form;
-    const { name } = this.props.field;
     this.setState({
       isHidden: !this.state.isHidden
     });
 
-    setFieldValue(name, date, true);
-    setFieldTouched(name, true, true);
+    this.setFieldValueAndTouched(date, true);
   }
 
   render() {
@@ -67,7 +65,7 @@ export default class PortDate extends React.Component {
             )}
           </div>
           {!isHidden && canBeDisabled && (
-            <Button onClick={() => this.toggleDate()}>
+            <Button onClick={() => this.toggleDate(null)}>
               Still working here...
             </Button>
           )}
