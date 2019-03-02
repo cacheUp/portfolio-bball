@@ -7,7 +7,7 @@ import { Row, Col } from "reactstrap";
 
 class PortfolioNew extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.savePortfolio = this.savePortfolio.bind(this);
   }
 
