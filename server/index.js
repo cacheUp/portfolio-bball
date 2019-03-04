@@ -8,6 +8,7 @@ const handle = routes.getRequestHandler(app);
 const dbConfig = require("./services/dbConfig");
 const mongoose = require("mongoose");
 const config = require("./config");
+const Book = require("./models/book");
 
 async () =>
   (await mongoose.connect(config.DB_URI, { useNewUrlParser: true }))();
@@ -16,6 +17,17 @@ app
   .prepare()
   .then(() => {
     const server = express();
+
+    server.post("/api/v1/books", (req, res) => {
+      const bookData = req.body;
+      const book = new Book(bookData);
+      book.save((err, createdBook) => {
+        if (err) {
+          return res.status(422).send(err);
+        }
+        return res.json(createdBook);
+      });
+    });
 
     server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       res.json(secretData);
