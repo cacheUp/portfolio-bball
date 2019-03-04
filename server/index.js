@@ -7,11 +7,10 @@ const app = next({ dev });
 const handle = routes.getRequestHandler(app);
 const dbConfig = require("./services/dbConfig");
 const mongoose = require("mongoose");
+const config = require("./config");
 
-mongoose
-  .connect(dbConfig.dbConfig, { useNewUrlParser: true })
-  .then(() => console.log("Database Connected! Woooo"))
-  .catch(err => console.error(err));
+async () =>
+  (await mongoose.connect(config.DB_URI, { useNewUrlParser: true }))();
 
 app
   .prepare()
