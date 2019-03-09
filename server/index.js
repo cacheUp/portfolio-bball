@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const config = require("./config");
 const Book = require("./models/book");
 const bodyParser = require("body-parser");
+const bookRoutes = require("./routes/book");
 
 mongoose
   .connect(config.DB_URI, { useNewUrlParser: true })
@@ -20,6 +21,8 @@ app
     const server = express();
     server.use(express.json());
     server.use(bodyParser.json());
+
+    server.use("/api/v1/books", bookRoutes);
 
     server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       res.json(secretData);

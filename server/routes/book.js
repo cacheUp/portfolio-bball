@@ -1,53 +1,14 @@
 const express = require("express");
+const bookCtrl = require("../controllers/book");
 const router = express.Router();
+
 //book router
-router.post("/api/v1/books", (req, res) => {
-  const bookData = req.body;
-  const book = new Book(bookData);
-  book.save((err, createdBook) => {
-    if (err) {
-      return res.status(422).send(err);
-    }
+router.post("", bookCtrl.saveBook);
 
-    return res.json(createdBook);
-  });
-});
+router.get("", bookCtrl.getBooks);
 
-router.get("/api/v1/books", (req, res) => {
-  Book.find({}, (err, allBooks) => {
-    if (err) {
-      return res.status(422).send(err);
-    }
-    return res.json(allBooks);
-  });
-});
+router.patch("/:id", bookCtrl.updateBook);
 
-router.patch("/api/v1/books/:id", (req, res) => {
-  const bookId = req.params.id;
-  const bookData = req.body;
-
-  Book.findById(bookId, (err, foundBook) => {
-    if (err) {
-      return res.status(422).send(err);
-    }
-    foundBook.set(bookData);
-    foundBook.save(err => {
-      if (err) {
-        return res.status(422).send(err);
-      }
-      return res.json(foundBook);
-    });
-  });
-});
-
-router.delete("/api/v1/books/:id", (req, res) => {
-  const bookId = req.params.id;
-  Book.deleteOne({ _id: bookId }, (err, deletedBook) => {
-    if (err) {
-      return res.status(422).send(err);
-    }
-    return res.json({ status: "DELETED" });
-  });
-});
+router.delete("/:id", bookCtrl.deleteBook);
 
 module.exports = router;
