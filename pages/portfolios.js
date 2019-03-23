@@ -15,11 +15,10 @@ import {
 import { getPortfolios } from "../actions";
 
 class Portfolios extends React.Component {
-  static async getInitialProps({ req }) {
+  static async getInitialProps() {
     let portfolios = [];
     try {
-      portfolios = await getPortfolios(req);
-      console.log(portfolios);
+      portfolios = await getPortfolios();
     } catch (err) {
       console.error(err);
     }
@@ -57,7 +56,6 @@ class Portfolios extends React.Component {
 
   render() {
     const { portfolios } = this.props;
-    console.log(this.props);
 
     return (
       <BaseLayout {...this.props.auth}>

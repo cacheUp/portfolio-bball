@@ -12,8 +12,8 @@ const portfolioSchema = new Schema({
   location: setStringType(128),
   position: setStringType(256),
   description: setStringType(2048),
-  startDate: { type: Date, required: true },
-  endDate: { type: Date, required: true, maxlength: 256 }
+  startDate: { type: Date },
+  endDate: { type: Date, maxlength: 256 }
 });
 
 module.exports = mongoose.model("Portfolio", portfolioSchema);
