@@ -39,5 +39,7 @@ export const createPortfolio = async portfolioData => {
       setAuthHeader()
     )
     .then(response => response.data)
-    .catch(error => console.log(error));
+    .catch(error => {
+      return Promise.reject(error.response.data);
+    });
 };

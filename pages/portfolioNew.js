@@ -9,6 +9,9 @@ import { createPortfolio } from "../actions";
 class PortfolioNew extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      error: undefined
+    };
     this.savePortfolio = this.savePortfolio.bind(this);
   }
 
@@ -16,10 +19,16 @@ class PortfolioNew extends React.Component {
     createPortfolio(portfolioData)
       .then(portfolio => {
         console.log(portfolio);
+        this.setState({ error: undefined });
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.log(err);
+        this.setState({ error: err.response.data.message });
+      });
   }
   render() {
+    const { error } = this.state;
+    console.log(error);
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage
@@ -28,7 +37,10 @@ class PortfolioNew extends React.Component {
         >
           <Row>
             <Col md="6">
-              <PortfolioCreateForm onSubmit={this.savePortfolio} />
+              <PortfolioCreateForm
+                error={error}
+                onSubmit={this.savePortfolio}
+              />
             </Col>
           </Row>
         </BasePage>
