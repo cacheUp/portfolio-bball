@@ -23,7 +23,7 @@ class PortfolioNew extends React.Component {
       })
       .catch(err => {
         console.log(err);
-        this.setState({ error: err.response.data.message });
+        this.setState({ error: err.message });
       });
   }
   render() {

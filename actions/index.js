@@ -31,6 +31,16 @@ export const getPortfolios = async req => {
     .then(response => response.data);
 };
 
+const rejectPromise = resError => {
+  let error = {};
+  if (err && err.response && err.response.data) {
+    error = err.response.data;
+  } else {
+    error = resError;
+  }
+  return Promise.reject(error);
+};
+
 export const createPortfolio = async portfolioData => {
   return await axios
     .post(
@@ -40,6 +50,6 @@ export const createPortfolio = async portfolioData => {
     )
     .then(response => response.data)
     .catch(error => {
-      return Promise.reject(error.response.data);
+      return rejectPromise(error);
     });
 };
