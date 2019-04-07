@@ -31,12 +31,12 @@ export const getPortfolios = async req => {
     .then(response => response.data);
 };
 
-const rejectPromise = resError => {
+const rejectPromise = err => {
   let error = {};
   if (err && err.response && err.response.data) {
     error = err.response.data;
   } else {
-    error = resError;
+    error = err;
   }
   return Promise.reject(error);
 };

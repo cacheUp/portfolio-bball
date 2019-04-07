@@ -28,7 +28,7 @@ class PortfolioNew extends React.Component {
   }
   render() {
     const { error } = this.state;
-    console.log(error);
+
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage
