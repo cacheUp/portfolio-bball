@@ -5,6 +5,7 @@ import withAuth from "../components/hoc/withAuth";
 import PortfolioCreateForm from "../components/portfolios/PortfolioCreateForm";
 import { Row, Col } from "reactstrap";
 import { createPortfolio } from "../actions";
+import { Router } from "../routes";
 
 class PortfolioNew extends React.Component {
   constructor(props) {
@@ -20,10 +21,11 @@ class PortfolioNew extends React.Component {
       .then(portfolio => {
         console.log(portfolio);
         this.setState({ error: undefined });
+        Router.pushRoute("/portfolios");
       })
       .catch(err => {
-        console.log(err);
-        this.setState({ error: err.message });
+        const error = err.message || "server error";
+        this.setState({ error });
       });
   }
   render() {
