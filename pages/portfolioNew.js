@@ -16,15 +16,18 @@ class PortfolioNew extends React.Component {
     this.savePortfolio = this.savePortfolio.bind(this);
   }
 
-  savePortfolio(portfolioData) {
+  savePortfolio(portfolioData, { setSubmitting }) {
+    setSubmitting(true);
     createPortfolio(portfolioData)
       .then(portfolio => {
+        setSubmitting(false);
         console.log(portfolio);
         this.setState({ error: undefined });
         Router.pushRoute("/portfolios");
       })
       .catch(err => {
         const error = err.message || "server error";
+        setSubmitting(false);
         this.setState({ error });
       });
   }
