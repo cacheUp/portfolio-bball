@@ -1,4 +1,5 @@
-const routes = require('next-routes')
+const routes = require("next-routes");
 
 module.exports = routes()
-.add('portfolio', '/portfolio/:id')
+  .add("portfolio", "/portfolio/:id")
+  .add("portfolioEdit", "/portfolio/:id/edit");
