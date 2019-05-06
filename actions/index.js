@@ -53,3 +53,9 @@ export const createPortfolio = async portfolioData => {
       return rejectPromise(error);
     });
 };
+
+export const getPortfolioById = async id => {
+  return await axiosInstance
+    .get(`http://localhost:3000/api/v1/portfolios/${id}`)
+    .then(response => response.data);
+};
