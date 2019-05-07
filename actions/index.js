@@ -54,6 +54,19 @@ export const createPortfolio = async portfolioData => {
     });
 };
 
+export const updatePortfolio = async portfolioData => {
+  return await axios
+    .patch(
+      `http://localhost:3000/api/v1/portfolios/${portfolioData._id}`,
+      portfolioData,
+      setAuthHeader()
+    )
+    .then(response => response.data)
+    .catch(error => {
+      return rejectPromise(error);
+    });
+};
+
 export const getPortfolioById = async id => {
   return await axiosInstance
     .get(`http://localhost:3000/api/v1/portfolios/${id}`)

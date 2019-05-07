@@ -3,7 +3,6 @@ const portfolioCtrl = require("../controllers/portfolio");
 const router = express.Router();
 const authService = require("../services/auth");
 
-//book router
 router.post(
   "",
   authService.checkJWT,
