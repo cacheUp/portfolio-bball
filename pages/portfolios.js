@@ -29,7 +29,7 @@ class Portfolios extends React.Component {
   }
 
   renderPortfolios(portfolios) {
-    const { isAuthenticated } = this.props.auth;
+    const { isAuthenticated, isSiteOwner } = this.props.auth;
     return portfolios.map((portfolio, index) => {
       return (
         <Col md="4" key={index}>
@@ -49,7 +49,7 @@ class Portfolios extends React.Component {
                   </CardText>
                   <div className="readMore">
                     {" "}
-                    {isAuthenticated && (
+                    {isAuthenticated && isSiteOwner && (
                       <React.Fragment>
                         <Button
                           onClick={() =>
@@ -76,11 +76,11 @@ class Portfolios extends React.Component {
 
   render() {
     const { portfolios } = this.props;
-    const { isAuthenticated } = this.props.auth;
+    const { isAuthenticated, isSiteOwner } = this.props.auth;
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage className="portfolio-page" title="I am Portfolios Page">
-          {isAuthenticated && (
+          {isAuthenticated && isSiteOwner && (
             <Button
               onClick={() => {
                 Router.pushRoute("/portfolioNew");
