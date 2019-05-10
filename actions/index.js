@@ -72,3 +72,12 @@ export const getPortfolioById = async id => {
     .get(`http://localhost:3000/api/v1/portfolios/${id}`)
     .then(response => response.data);
 };
+
+export const deletePortfolio = portfolioId => {
+  return axios
+    .delete(
+      `http://localhost:3000/api/v1/portfolios/${portfolioId}`,
+      setAuthHeader()
+    )
+    .then(response => response.data);
+};

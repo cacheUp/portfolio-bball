@@ -14,7 +14,7 @@ import {
   CardTitle,
   Button
 } from "reactstrap";
-import { getPortfolios } from "../actions";
+import { getPortfolios, deletePortfolio } from "../actions";
 
 class Portfolios extends React.Component {
   static async getInitialProps() {
@@ -26,6 +26,23 @@ class Portfolios extends React.Component {
     }
 
     return { portfolios };
+  }
+
+  displayDeleteWarning(portfolioId) {
+    const isConfirm = window.confirm(
+      "Are you sure you want to delete this portfolio?"
+    );
+    if (isConfirm) {
+      this.deletePortfolio(portfolioId);
+    }
+  }
+
+  deletePortfolio(portfolioId) {
+    deletePortfolio(portfolioId)
+      .then(() => {})
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   renderPortfolios(portfolios) {
@@ -61,7 +78,14 @@ class Portfolios extends React.Component {
                         >
                           Edit
                         </Button>{" "}
-                        <Button color="danger">Update</Button>
+                        <Button
+                          onClick={() =>
+                            this.displayDeleteWarning(portfolio._id)
+                          }
+                          color="danger"
+                        >
+                          Delete
+                        </Button>
                       </React.Fragment>
                     )}
                   </div>
