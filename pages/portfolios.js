@@ -2,6 +2,7 @@ import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import { Link } from "../routes";
 import BasePage from "../components/shared/BasePage";
+import { Router } from "../routes";
 import axios from "axios";
 import {
   Row,
@@ -10,7 +11,8 @@ import {
   CardHeader,
   CardBody,
   CardText,
-  CardTitle
+  CardTitle,
+  Button
 } from "reactstrap";
 import { getPortfolios } from "../actions";
 
@@ -44,7 +46,24 @@ class Portfolios extends React.Component {
                   <CardText className="portfolio-card-text">
                     {portfolio.description}
                   </CardText>
-                  <div className="readMore"> </div>
+                  <div className="readMore">
+                    {" "}
+                    {
+                      <React.Fragment>
+                        <Button
+                          onClick={() =>
+                            Router.pushRoute(
+                              `/portfolios/${portfolio._id}/edit`
+                            )
+                          }
+                          color="warning"
+                        >
+                          Edit
+                        </Button>{" "}
+                        <Button color="danger">Update</Button>
+                      </React.Fragment>
+                    }
+                  </div>
                 </CardBody>
               </Card>
             </span>
@@ -60,6 +79,16 @@ class Portfolios extends React.Component {
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage className="portfolio-page" title="I am Portfolios Page">
+          <Button
+            onClick={() => {
+              Router.pushRoute("/portfolioNew");
+            }}
+            color="success"
+            className="create-port-btn"
+          >
+            {" "}
+            create portfolio
+          </Button>
           <Row>{this.renderPortfolios(portfolios)}</Row>
         </BasePage>
       </BaseLayout>
