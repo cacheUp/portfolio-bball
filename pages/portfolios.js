@@ -39,7 +39,9 @@ class Portfolios extends React.Component {
 
   deletePortfolio(portfolioId) {
     deletePortfolio(portfolioId)
-      .then(() => {})
+      .then(() => {
+        Router.pushRoute("/portfolios");
+      })
       .catch(err => {
         console.error(err);
       });
