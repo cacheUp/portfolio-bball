@@ -2,33 +2,12 @@ import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class PortfolioCardDetail extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false
-    };
-
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle() {
-    this.setState(prevState => ({
-      modal: !prevState.modal
-    }));
-  }
-
   render() {
+    const { isOpen, toggle } = this.props;
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>
-          {this.props.buttonLabel}
-        </Button>
-        <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          className={this.props.className}
-        >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+        <Modal isOpen={isOpen} toggle={toggle}>
+          <ModalHeader toggle={toggle}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -39,10 +18,7 @@ class PortfolioCardDetail extends React.Component {
             culpa qui officia deserunt mollit anim id est laborum.
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
-              Do Something
-            </Button>{" "}
-            <Button color="secondary" onClick={this.toggle}>
+            <Button color="secondary" onClick={toggle}>
               Cancel
             </Button>
           </ModalFooter>
