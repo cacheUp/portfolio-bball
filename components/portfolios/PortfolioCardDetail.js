@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import moment from "moment";
 
 class PortfolioCardDetail extends React.Component {
   render() {
@@ -19,10 +20,12 @@ class PortfolioCardDetail extends React.Component {
               <b>Location:</b> {portfolio.location}
             </p>
             <p>
-              <b>Start Date:</b> {portfolio.startDate}
+              <b>Start Date:</b>{" "}
+              {moment(portfolio.startDate).format("MMMM DD YYYY")}
             </p>
             <p>
-              <b>End Date:</b> {portfolio.endDate}
+              <b>End Date:</b>{" "}
+              {moment(portfolio.endDate).format("MMMM DD YYYY")}
             </p>
           </ModalBody>
           <ModalFooter>
