@@ -25,7 +25,9 @@ class PortfolioCardDetail extends React.Component {
             </p>
             <p>
               <b>End Date:</b>{" "}
-              {moment(portfolio.endDate).format("MMMM DD YYYY")}
+              {portfolio.endDate
+                ? moment(portfolio.endDate).format("MMMM DD YYYY")
+                : "Currently Working Here"}
             </p>
           </ModalBody>
           <ModalFooter>
