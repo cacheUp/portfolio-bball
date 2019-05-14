@@ -8,7 +8,10 @@ const BaseLayout = props => {
 
   return (
     <React.Fragment>
-      <Head>{""}</Head>
+      <Head>
+        <title>Bradley Ball</title>
+        <script src="https://kit.fontawesome.com/b682f54eb6.js" />
+      </Head>
       <div className="layout-container">
         <Header
           className={`port-nav-${headerType}`}
