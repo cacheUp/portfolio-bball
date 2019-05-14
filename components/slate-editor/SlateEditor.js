@@ -21,13 +21,24 @@ const initialValue = Value.fromJSON({
 
 export default class SlateEditor extends React.Component {
   state = {
-    value: initialValue
+    value: initialValue,
+    isLoaded: false
   };
+
+  componentDidMount() {
+    this.setState({ isLoaded: true });
+  }
   onChange = ({ value }) => {
     this.setState({ value });
   };
-
   render() {
-    return <Editor value={this.state.value} onChange={this.onChange} />;
+    const { isLoaded } = this.state;
+    return (
+      <React.Fragment>
+        {isLoaded && (
+          <Editor value={this.state.value} onChange={this.onChange} />
+        )}
+      </React.Fragment>
+    );
   }
 }
