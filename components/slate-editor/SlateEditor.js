@@ -26,6 +26,9 @@ function CodeNode(props) {
     </pre>
   );
 }
+function BoldMark(props) {
+  return <strong>{props.children}</strong>;
+}
 
 export default class SlateEditor extends React.Component {
   state = {
@@ -41,13 +44,27 @@ export default class SlateEditor extends React.Component {
   };
 
   onKeyDown = (event, editor, next) => {
-    console.log("hey");
-    if (event.key != "x" || !event.ctrlKey) return next();
-    event.preventDefault();
-    // Determine whether any of the currently selected blocks are code blocks.
-    const isCode = editor.value.blocks.some(block => block.type == "code");
-    // toggle the block type depending on `isCode`.
-    editor.setBlocks(isCode ? "paragraph" : "code");
+    if (!event.ctrlKey) return next();
+    // Decide what to do based on the key code...
+    switch (event.key) {
+      // When "B" is pressed, add a "bold" mark to the text.
+      case "b": {
+        event.preventDefault();
+        editor.addMark("bold");
+        break;
+      }
+      // When "`" is pressed, keep our existing code block logic.
+      case "`": {
+        const isCode = editor.value.blocks.some(block => block.type == "code");
+        event.preventDefault();
+        editor.setBlocks(isCode ? "paragraph" : "code");
+        break;
+      }
+      // Otherwise, let other plugins handle it.
+      default: {
+        return next();
+      }
+    }
   };
 
   renderBlock = (props, editor, next) => {
@@ -56,6 +73,15 @@ export default class SlateEditor extends React.Component {
         return <CodeNode {...props} />;
       case "paragraph":
         return <p {...props.attributes}> {props.children}</p>;
+      default:
+        return next();
+    }
+  };
+
+  renderMark = (props, editor, next) => {
+    switch (props.mark.type) {
+      case "bold":
+        return <BoldMark {...props} />;
       default:
         return next();
     }
@@ -71,6 +97,7 @@ export default class SlateEditor extends React.Component {
             onKeyDown={this.onKeyDown}
             onChange={this.onChange}
             renderNode={this.renderBlock}
+            renderMark={this.renderMark}
           />
         )}
       </React.Fragment>
