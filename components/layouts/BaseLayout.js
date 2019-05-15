@@ -11,6 +11,10 @@ const BaseLayout = props => {
       <Head>
         <title>Bradley Ball</title>
         <script src="https://kit.fontawesome.com/b682f54eb6.js" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
       </Head>
       <div className="layout-container">
         <Header
