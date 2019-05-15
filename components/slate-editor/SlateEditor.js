@@ -41,18 +41,21 @@ export default class SlateEditor extends React.Component {
   };
 
   onKeyDown = (event, editor, next) => {
-    // Return with no changes if the keypress is not '&'
-    if (event.key !== "&") return next();
-    // Prevent the ampersand character from being inserted.
+    console.log("hey");
+    if (event.key != "x" || !event.ctrlKey) return next();
     event.preventDefault();
-    // Change the value by inserting 'and' at the cursor's position.
-    editor.insertText("and");
+    // Determine whether any of the currently selected blocks are code blocks.
+    const isCode = editor.value.blocks.some(block => block.type == "code");
+    // toggle the block type depending on `isCode`.
+    editor.setBlocks(isCode ? "paragraph" : "code");
   };
 
   renderBlock = (props, editor, next) => {
     switch (props.node.type) {
       case "code":
         return <CodeNode {...props} />;
+      case "paragraph":
+        return <p {...props.attributes}> {props.children}</p>;
       default:
         return next();
     }
@@ -67,6 +70,7 @@ export default class SlateEditor extends React.Component {
             value={this.state.value}
             onKeyDown={this.onKeyDown}
             onChange={this.onChange}
+            renderNode={this.renderBlock}
           />
         )}
       </React.Fragment>
