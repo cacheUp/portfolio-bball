@@ -50,7 +50,7 @@ export default class SlateEditor extends React.Component {
       // When "B" is pressed, add a "bold" mark to the text.
       case "b": {
         event.preventDefault();
-        editor.addMark("bold");
+        editor.toggleMark("bold");
         break;
       }
       // When "`" is pressed, keep our existing code block logic.
