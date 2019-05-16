@@ -70,6 +70,7 @@ export default class SlateEditor extends React.Component {
     return (
       <React.Fragment>
         {children}
+        <div>Bradley Ball</div>
         <HoverMenu ref={this.menuRef} editor={editor} />
       </React.Fragment>
     );
