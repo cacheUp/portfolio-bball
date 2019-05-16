@@ -1,25 +1,8 @@
 import React from "react";
 import { Editor } from "slate-react";
-import { Value } from "slate";
+import { initialValue } from "./initial-value";
 import { renderMark } from "../slate-editor/renderers";
 import { HoverMenu } from "../slate-editor/HoverMenu";
-
-const initialValue = Value.fromJSON({
-  document: {
-    nodes: [
-      {
-        object: "block",
-        type: "paragraph",
-        nodes: [
-          {
-            object: "text",
-            text: "A line of text in a paragraph."
-          }
-        ]
-      }
-    ]
-  }
-});
 
 export default class SlateEditor extends React.Component {
   state = {
