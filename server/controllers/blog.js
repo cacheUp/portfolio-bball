@@ -1,5 +1,16 @@
 const Blog = require("../models/blog");
 
+exports.getBlogById = (req, res) => {
+  const blogId = req.params.blogId;
+  Blog.findById(blogId, (err, foundBlog) => {
+    if (err) {
+      return res.status(422).send(err);
+    }
+
+    return res.json(foundBlog);
+  });
+};
+
 exports.createBlog = (req, res) => {
   const blogData = req.body;
 
