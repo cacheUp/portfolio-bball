@@ -3,6 +3,8 @@ const blogCtrl = require("../controllers/blog");
 const router = express.Router();
 const authService = require("../services/auth");
 
+router.get("/:id", blogCtrl.getBlogById);
+
 router.post(
   "",
   authService.checkJWT,
