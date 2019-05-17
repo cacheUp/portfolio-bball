@@ -32,7 +32,7 @@ class BlogEditorUpdate extends React.Component {
           <SlateEditor
             initialValue={blog.story}
             isSaving={isSaving}
-            save={this.saveBlog}
+            save={() => console.log("this will save a post")}
           />
         </BasePage>
       </BaseLayout>
