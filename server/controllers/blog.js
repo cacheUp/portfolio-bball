@@ -1,7 +1,7 @@
 const Blog = require("../models/blog");
 
 exports.getBlogById = (req, res) => {
-  const blogId = req.params.blogId;
+  const blogId = req.params.id;
   Blog.findById(blogId, (err, foundBlog) => {
     if (err) {
       return res.status(422).send(err);
