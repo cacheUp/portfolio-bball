@@ -7,6 +7,7 @@ import {
   renderNode
 } from "../slate-editor/renderers";
 import { HoverMenu } from "../slate-editor/HoverMenu";
+import { ControlMenu } from "./ControlMenu";
 
 export default class SlateEditor extends React.Component {
   state = {
@@ -74,6 +75,7 @@ export default class SlateEditor extends React.Component {
     const children = next();
     return (
       <React.Fragment>
+        <ControlMenu />
         {children}
         <div>Bradley Ball</div>
         <HoverMenu ref={this.menuRef} editor={editor} />
