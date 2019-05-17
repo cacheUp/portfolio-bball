@@ -6,8 +6,8 @@ exports.createBlog = (req, res) => {
   const blog = new Blog(blogData);
 
   if (req.user) {
-    blog.userId = user.sub;
-    blog.author = user.name;
+    blog.userId = req.user.sub;
+    blog.author = req.user.name;
   }
 
   blog.save((err, createdBlog) => {
