@@ -11,7 +11,7 @@ const Book = require("./models/book");
 const bodyParser = require("body-parser");
 const bookRoutes = require("./routes/book");
 const portfolioRoutes = require("./routes/portfolio");
-
+const blogRoutes = require("./routes/blog");
 mongoose
   .connect(config.DB_URI, { useNewUrlParser: true })
   .then(() => console.log("database connected"))
@@ -25,6 +25,7 @@ app
 
     server.use("/api/v1/books", bookRoutes);
     server.use("/api/v1/portfolios", portfolioRoutes);
+    server.use("/api/v1/blogs", blogRoutes);
 
     server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       res.json(secretData);

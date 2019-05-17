@@ -1,4 +1,4 @@
-const blog = require("../models/blog");
+const Blog = require("../models/blog");
 
 exports.createBlog = (req, res) => {
   const blogData = req.body;

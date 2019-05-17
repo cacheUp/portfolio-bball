@@ -7,24 +7,24 @@ router.post(
   "",
   authService.checkJWT,
   authService.checkRole("siteOwner"),
-  blogCtrl.saveblog
+  blogCtrl.createBlog
 );
 
-router.get("", blogCtrl.getblogs);
-router.get("/:id", blogCtrl.getblogById);
-router.patch(
-  "/:id",
-  authService.checkJWT,
-  authService.checkRole("siteOwner"),
-  blogCtrl.updateblog
-);
+// router.get("", blogCtrl.getblogs);
+// router.get("/:id", blogCtrl.getblogById);
+// router.patch(
+//   "/:id",
+//   authService.checkJWT,
+//   authService.checkRole("siteOwner"),
+//   blogCtrl.updateblog
+// );
 
-router.delete(
-  "/:id",
-  authService.checkJWT,
-  authService.checkRole("siteOwner"),
-  blogCtrl.deleteblog
-);
+// router.delete(
+//   "/:id",
+//   authService.checkJWT,
+//   authService.checkRole("siteOwner"),
+//   blogCtrl.deleteblog
+// );
 
 // router.patch("/:id", bookCtrl.updateBook);
 
