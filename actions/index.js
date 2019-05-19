@@ -81,3 +81,13 @@ export const deletePortfolio = portfolioId => {
     )
     .then(response => response.data);
 };
+
+//  ----------------------- Blog Actions -----------------------
+
+export const saveBlog = blogData => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("promise resolved!!");
+    }, 1000);
+  });
+};

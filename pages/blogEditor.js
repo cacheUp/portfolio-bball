@@ -5,10 +5,18 @@ import withAuth from "../components/hoc/withAuth";
 import SlateEditor from "../components/slate-editor/SlateEditor";
 
 class BlogEditor extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false
+    };
+  }
+
   saveBlog = heading => {
     const blog = {};
     blog.title = heading.title;
     blog.subtitle = heading.subtitle;
+    this.setState({ isLoading: true });
   };
 
   render() {
