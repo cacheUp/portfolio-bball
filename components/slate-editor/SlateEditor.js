@@ -89,7 +89,7 @@ export default class SlateEditor extends React.Component {
     const children = next();
     return (
       <React.Fragment>
-        <ControlMenu save={this.save} />
+        <ControlMenu save={() => this.save()} />
         {children}
         <div>Bradley Ball</div>
         <HoverMenu ref={this.menuRef} editor={editor} />
