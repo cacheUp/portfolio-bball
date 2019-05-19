@@ -6,9 +6,9 @@ import SlateEditor from "../components/slate-editor/SlateEditor";
 
 class BlogEditor extends React.Component {
   saveBlog = heading => {
-    heading.title;
-    heading.subtitle;
-    console.log("saving blog");
+    const blog = {};
+    blog.title = heading.title;
+    blog.subtitle = heading.subtitle;
   };
 
   render() {
