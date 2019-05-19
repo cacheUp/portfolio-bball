@@ -9,7 +9,7 @@ class BlogEditor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false
+      isSaving: false
     };
   }
 
@@ -17,18 +17,19 @@ class BlogEditor extends React.Component {
     const blog = {};
     blog.title = heading.title;
     blog.subtitle = heading.subtitle;
-    this.setState({ isLoading: true });
+    this.setState({ isSaving: true });
     saveBlog().then(data => {
       console.log(data);
-      this.setState({ isLoading: false });
+      this.setState({ isSaving: false });
     });
   };
 
   render() {
+    const { isSaving } = this.state;
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage containerClass="editor-wrapper" className="blog-editor-page">
-          <SlateEditor save={this.saveBlog} />
+          <SlateEditor isSaving={isSaving} save={this.saveBlog} />
         </BasePage>
       </BaseLayout>
     );
