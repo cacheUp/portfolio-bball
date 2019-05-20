@@ -2,65 +2,27 @@ import { Button, Icon } from "../components";
 
 const DEFAULT_NODE = "paragraph";
 
-export const MarkButton = ({ editor, type, icon }) => {
+function onClickMark(event, type, editor) {
+  event.preventDefault();
+  editor.toggleMark(type);
+}
+
+export function MarkButton({ type, icon, editor }) {
   const { value } = editor;
-  const isActive = value.activeMarks.some(mark => mark.type === type);
+  const isActive = value.activeMarks.some(mark => mark.type == type);
   return (
     <Button
       reversed
       active={isActive}
-      onMouseDown={event => {
-        event.preventDefault();
-        editor.toggleMark(type);
-      }}
+      onMouseDown={event => onClickMark(event, type, editor)}
     >
       <Icon>{icon}</Icon>
     </Button>
   );
-};
-
-export const renderMark = (props, editor, next) => {
-  const { children, mark, attributes } = props;
-
-  switch (mark.type) {
-    case "bold":
-      return <strong {...attributes}>{children}</strong>;
-    case "code":
-      return <code {...attributes}>{children}</code>;
-    case "italic":
-      return <em {...attributes}>{children}</em>;
-    case "underlined":
-      return <u {...attributes}>{children}</u>;
-    default:
-      return next();
-  }
-};
-
-export const renderNode = (props, editor, next) => {
-  const { attributes, children, node } = props;
-
-  switch (node.type) {
-    case "paragraph":
-      return <p {...attributes}>{children} </p>;
-    case "block-quote":
-      return <blockquote {...attributes}>{children}</blockquote>;
-    case "bulleted-list":
-      return <ul {...attributes}>{children}</ul>;
-    case "heading-one":
-      return <h1 {...attributes}>{children}</h1>;
-    case "heading-two":
-      return <h2 {...attributes}>{children}</h2>;
-    case "list-item":
-      return <li {...attributes}>{children}</li>;
-    case "numbered-list":
-      return <ol {...attributes}>{children}</ol>;
-    default:
-      return next();
-  }
-};
+}
 
 const hasBlock = (type, value) => {
-  return value.blocks.some(node => node.type === type);
+  return value.blocks.some(node => node.type == type);
 };
 
 const onClickBlock = (event, type, editor) => {
@@ -70,7 +32,7 @@ const onClickBlock = (event, type, editor) => {
   const { document } = value;
 
   // Handle everything but list buttons.
-  if (type !== "bulleted-list" && type !== "numbered-list") {
+  if (type != "bulleted-list" && type != "numbered-list") {
     const isActive = hasBlock(type, value);
     const isList = hasBlock("list-item", value);
 
@@ -86,7 +48,7 @@ const onClickBlock = (event, type, editor) => {
     // Handle the extra wrapping required for list buttons.
     const isList = hasBlock("list-item", value);
     const isType = value.blocks.some(block => {
-      return !!document.getClosest(block.key, parent => parent.type === type);
+      return !!document.getClosest(block.key, parent => parent.type == type);
     });
 
     if (isList && isType) {
@@ -97,7 +59,7 @@ const onClickBlock = (event, type, editor) => {
     } else if (isList) {
       editor
         .unwrapBlock(
-          type === "bulleted-list" ? "numbered-list" : "bulleted-list"
+          type == "bulleted-list" ? "numbered-list" : "bulleted-list"
         )
         .wrapBlock(type);
     } else {
@@ -128,4 +90,44 @@ export const renderBlocksButton = (type, icon, editor) => {
       <Icon>{icon}</Icon>
     </Button>
   );
+};
+
+export const renderNode = (props, editor, next) => {
+  const { attributes, children, node } = props;
+
+  switch (node.type) {
+    case "paragraph":
+      return <p {...attributes}>{children}</p>;
+    case "block-quote":
+      return <blockquote {...attributes}>{children}</blockquote>;
+    case "bulleted-list":
+      return <ul {...attributes}>{children}</ul>;
+    case "heading-one":
+      return <h1 {...attributes}>{children}</h1>;
+    case "heading-two":
+      return <h2 {...attributes}>{children}</h2>;
+    case "list-item":
+      return <li {...attributes}>{children}</li>;
+    case "numbered-list":
+      return <ol {...attributes}>{children}</ol>;
+    default:
+      return next();
+  }
+};
+
+export const renderMark = (props, editor, next) => {
+  const { children, mark, attributes } = props;
+
+  switch (mark.type) {
+    case "bold":
+      return <strong {...attributes}>{children}</strong>;
+    case "code":
+      return <code {...attributes}>{children}</code>;
+    case "italic":
+      return <em {...attributes}>{children}</em>;
+    case "underlined":
+      return <u {...attributes}>{children}</u>;
+    default:
+      return next();
+  }
 };
