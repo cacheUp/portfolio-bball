@@ -1,14 +1,19 @@
 const BLOCK_TAGS = {
   blockquote: "quote",
   p: "paragraph",
-  pre: "code"
+  ul: "bulleted-list",
+  li: "list-item",
+  ol: "numbered-list",
+  h1: "heading-one",
+  h2: "heading-two"
 };
 
 // Add a dictionary of mark tags.
 const MARK_TAGS = {
   em: "italic",
   strong: "bold",
-  u: "underline"
+  u: "underline",
+  code: "code"
 };
 
 const rules = [
