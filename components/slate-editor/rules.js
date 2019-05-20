@@ -70,6 +70,8 @@ const rules = [
             return <em>{children}</em>;
           case "underline":
             return <u>{children}</u>;
+          case "code":
+            return <code>{children}</code>;
         }
       }
     }
