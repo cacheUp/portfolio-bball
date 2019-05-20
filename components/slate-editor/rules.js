@@ -24,9 +24,6 @@ const rules = [
         return {
           object: "block",
           type: type,
-          data: {
-            className: el.getAttribute("class")
-          },
           nodes: next(el.childNodes)
         };
       }
@@ -34,12 +31,6 @@ const rules = [
     serialize(obj, children) {
       if (obj.object == "block") {
         switch (obj.type) {
-          case "code":
-            return (
-              <pre>
-                <code>{children}</code>
-              </pre>
-            );
           case "paragraph":
             return <p className={obj.data.get("className")}>{children}</p>;
           case "quote":
