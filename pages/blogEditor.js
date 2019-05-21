@@ -19,7 +19,7 @@ class BlogEditor extends React.Component {
     blog.subtitle = heading.subtitle;
     this.setState({ isSaving: true });
     saveBlog().then(data => {
-      console.log(data);
+      console.log(data, blog);
       this.setState({ isSaving: false });
     });
   };
