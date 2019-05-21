@@ -13,10 +13,11 @@ class BlogEditor extends React.Component {
     };
   }
 
-  saveBlog = heading => {
+  saveBlog = (story, heading) => {
     const blog = {};
     blog.title = heading.title;
     blog.subtitle = heading.subtitle;
+    blog.story = story;
     this.setState({ isSaving: true });
     saveBlog().then(data => {
       console.log(data, blog);
