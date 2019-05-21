@@ -3,7 +3,7 @@ import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 import SlateEditor from "../components/slate-editor/SlateEditor";
-import { saveBlog } from "../actions";
+import { createBlog } from "../actions";
 
 class BlogEditor extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class BlogEditor extends React.Component {
     blog.subtitle = heading.subtitle;
     blog.story = story;
     this.setState({ isSaving: true });
-    saveBlog().then(data => {
+    createBlog().then(data => {
       console.log(data, blog);
       this.setState({ isSaving: false });
     });
