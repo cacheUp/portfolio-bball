@@ -6,7 +6,7 @@ export const ControlMenu = props => {
     <div className="control-menu">
       <h1 className="title">Write Your Story... </h1>
       <div className="status-box">{props.isSaving ? "Saving..." : "Saved"}</div>
-      <Button color="success" disabled={props.isLoading} onClick={props.save}>
+      <Button color="success" disabled={props.isSaving} onClick={props.save}>
         Save
       </Button>
     </div>
