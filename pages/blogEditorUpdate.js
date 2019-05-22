@@ -6,6 +6,9 @@ import SlateEditor from "../components/slate-editor/SlateEditor";
 import { createBlog } from "../actions";
 
 class BlogEditorUpdate extends React.Component {
+  getInitialProps({ query }) {
+    const blog = query.id;
+  }
   constructor(props) {
     super(props);
     this.state = {
