@@ -7,7 +7,7 @@ import { createBlog } from "../actions";
 
 class BlogEditorUpdate extends React.Component {
   getInitialProps({ query }) {
-    const blog = query.id;
+    const blogId = query.id;
   }
   constructor(props) {
     super(props);

@@ -90,3 +90,9 @@ export const createBlog = blogData => {
     .then(response => response.data)
     .catch(err => rejectPromise(err));
 };
+
+export const getBlogById = blogId => {
+  return axios
+    .get(`http://localhost:3000/api/v1/blogs/${blogId}`)
+    .then(response => response.data);
+};
