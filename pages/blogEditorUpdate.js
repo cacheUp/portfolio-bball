@@ -23,6 +23,8 @@ class BlogEditorUpdate extends React.Component {
   }
 
   render() {
+    const { blog } = this.props;
+    console.log(blog);
     const { isSaving } = this.state;
     return (
       <BaseLayout {...this.props.auth}>
