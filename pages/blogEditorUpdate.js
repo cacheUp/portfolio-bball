@@ -8,12 +8,13 @@ import { getBlogById } from "../actions";
 class BlogEditorUpdate extends React.Component {
   static async getInitialProps({ query }) {
     const blogId = query.id;
+    let blog = {};
     try {
-      const blog = await getBlogById(blogId);
-      return { blog };
+      blog = await getBlogById(blogId);
     } catch (err) {
-      return { err };
+      console.error(error);
     }
+    return { blog };
   }
   constructor(props) {
     super(props);
