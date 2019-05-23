@@ -1,5 +1,5 @@
 const BLOCK_TAGS = {
-  blockquote: "quote",
+  blockquote: "block-quote",
   p: "paragraph",
   ul: "bulleted-list",
   li: "list-item",

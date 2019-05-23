@@ -16,32 +16,37 @@ exports.getBlogById = (req, res) => {
 
 exports.createBlog = (req, res) => {
   const lockId = req.query.lockId;
-  lock.acquire(
-    lockId,
-    function(done) {
-      const blogData = req.body;
 
-      const blog = new Blog(blogData);
+  if (!lock.isBusy()) {
+    lock.acquire(
+      lockId,
+      function(done) {
+        const blogData = req.body;
 
-      if (req.user) {
-        blog.userId = req.user.sub;
-        blog.author = req.user.name;
-      }
+        const blog = new Blog(blogData);
 
-      blog.save((err, createdBlog) => {
-        setTimeout(() => {
-          done();
-        }, 5000);
-
-        if (err) {
-          return res.status(422).send(err);
+        if (req.user) {
+          blog.userId = req.user.sub;
+          blog.author = req.user.name;
         }
 
-        return res.json(createdBlog);
-      });
-    },
-    function(err, ret) {
-      err && console.error(err);
-    }
-  );
+        blog.save((err, createdBlog) => {
+          setTimeout(() => {
+            done();
+          }, 5000);
+
+          if (err) {
+            return res.status(422).send(err);
+          }
+
+          return res.json(createdBlog);
+        });
+      },
+      function(err, ret) {
+        err && console.error(err);
+      }
+    );
+  } else {
+    return res.status(422).send({ message: "Blog is saving" });
+  }
 };
