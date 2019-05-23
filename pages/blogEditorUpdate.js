@@ -25,12 +25,15 @@ class BlogEditorUpdate extends React.Component {
 
   render() {
     const { blog } = this.props;
-    console.log(blog);
     const { isSaving } = this.state;
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage containerClass="editor-wrapper" className="blog-editor-page">
-          <SlateEditor isSaving={isSaving} save={this.saveBlog} />
+          <SlateEditor
+            initialValue={blog.story}
+            isSaving={isSaving}
+            save={this.saveBlog}
+          />
         </BasePage>
       </BaseLayout>
     );
