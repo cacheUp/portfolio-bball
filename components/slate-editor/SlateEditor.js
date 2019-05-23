@@ -27,7 +27,7 @@ export default class SlateEditor extends React.Component {
       ? Value.fromJSON(html.deserialize(valueFromProps))
       : Value.fromJSON(initialValue);
     this.updateMenu();
-    this.setState({ isLoaded: true });
+    this.setState({ isLoaded: true, value });
   }
 
   componentDidUpdate = () => {
