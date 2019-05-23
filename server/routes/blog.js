@@ -12,6 +12,13 @@ router.post(
   blogCtrl.createBlog
 );
 
+router.patch(
+  "",
+  authService.checkJWT,
+  authService.checkRole("siteOwner"),
+  blogCtrl.updateBlog
+);
+
 // router.get("", blogCtrl.getblogs);
 // router.get("/:id", blogCtrl.getblogById);
 // router.patch(
