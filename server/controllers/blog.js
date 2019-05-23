@@ -1,6 +1,7 @@
 const Blog = require("../models/blog");
 const AsyncLock = require("async-lock");
 const lock = new AsyncLock();
+console.log("async");
 
 exports.getBlogById = (req, res) => {
   const blogId = req.params.id;
