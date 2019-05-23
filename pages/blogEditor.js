@@ -4,6 +4,7 @@ import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 import SlateEditor from "../components/slate-editor/SlateEditor";
 import { createBlog } from "../actions";
+import { Router } from "../routes";
 
 class BlogEditor extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class BlogEditor extends React.Component {
     createBlog(blog)
       .then(data => {
         this.setState({ isSaving: false });
+        Router.pushRoute(`/blogs/${data._id}/edit`);
       })
       .catch(err => {
         console.error(err);
