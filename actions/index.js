@@ -84,9 +84,13 @@ export const deletePortfolio = portfolioId => {
 
 //  ----------------------- Blog Actions -----------------------
 
-export const createBlog = blogData => {
+export const createBlog = (blogData, lockId) => {
   return axios
-    .post("http://localhost:3000/api/v1/blogs", blogData, setAuthHeader())
+    .post(
+      `http://localhost:3000/api/v1/blogs?lockId=${lockId}`,
+      blogData,
+      setAuthHeader()
+    )
     .then(response => response.data)
     .catch(err => rejectPromise(err));
 };

@@ -16,12 +16,13 @@ class BlogEditor extends React.Component {
   }
 
   saveBlog = (story, heading) => {
+    const { lockId } = this.state;
     const blog = {};
     blog.title = heading.title;
     blog.subtitle = heading.subtitle;
     blog.story = story;
     this.setState({ isSaving: true });
-    createBlog(blog)
+    createBlog(blog, lockId)
       .then(data => {
         this.setState({ isSaving: false });
         Router.pushRoute(`/blogs/${data._id}/edit`);
