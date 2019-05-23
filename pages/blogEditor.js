@@ -10,7 +10,8 @@ class BlogEditor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isSaving: false
+      isSaving: false,
+      lockId: Math.floor(1000 + Math.random() * 9000)
     };
   }
 
