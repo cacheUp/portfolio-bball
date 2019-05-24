@@ -100,3 +100,16 @@ export const getBlogById = blogId => {
     .get(`http://localhost:3000/api/v1/blogs/${blogId}`)
     .then(response => response.data);
 };
+
+export const updateBlog = async blogData => {
+  return await axios
+    .patch(
+      `http://localhost:3000/api/v1/blogs/${blogData._id}`,
+      blogData,
+      setAuthHeader()
+    )
+    .then(response => response.data)
+    .catch(error => {
+      return rejectPromise(error);
+    });
+};
