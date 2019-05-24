@@ -13,7 +13,7 @@ router.post(
 );
 
 router.patch(
-  "",
+  "/:id",
   authService.checkJWT,
   authService.checkRole("siteOwner"),
   blogCtrl.updateBlog
