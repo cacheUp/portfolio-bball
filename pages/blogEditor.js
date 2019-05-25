@@ -24,11 +24,13 @@ class BlogEditor extends React.Component {
     this.setState({ isSaving: true });
     createBlog(blog, lockId)
       .then(data => {
+        toast.success("Blog Saved Successfully");
         this.setState({ isSaving: false });
         Router.pushRoute(`/blogs/${data._id}/edit`);
       })
       .catch(err => {
         console.error(err);
+        toast.error("Error Saving Blog, try again ...");
         this.setState({ isSaving: false });
       });
   };

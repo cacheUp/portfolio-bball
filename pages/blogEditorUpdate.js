@@ -4,6 +4,7 @@ import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 import SlateEditor from "../components/slate-editor/SlateEditor";
 import { getBlogById, updateBlog } from "../actions";
+import { toast } from "react-toastify";
 
 class BlogEditorUpdate extends React.Component {
   static async getInitialProps({ query }) {
@@ -30,13 +31,16 @@ class BlogEditorUpdate extends React.Component {
     updatedBlog.title = heading.title;
     updatedBlog.subtitle = heading.subtitle;
     updatedBlog.story = story;
+
     this.setState({ isSaving: true });
     updateBlog(updatedBlog, blog._id)
       .then(data => {
+        toast.success("Blog Saved Successfully");
         this.setState({ isSaving: false });
       })
       .catch(err => {
         console.error(err);
+        toast.error("Error Saving Blog, try again ...");
         this.setState({ isSaving: false });
       });
   }
