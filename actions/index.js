@@ -101,10 +101,10 @@ export const getBlogById = blogId => {
     .then(response => response.data);
 };
 
-export const updateBlog = async blogData => {
+export const updateBlog = async (blogData, id) => {
   return await axios
     .patch(
-      `http://localhost:3000/api/v1/blogs/${blogData._id}`,
+      `http://localhost:3000/api/v1/blogs/${id}`,
       blogData,
       setAuthHeader()
     )
