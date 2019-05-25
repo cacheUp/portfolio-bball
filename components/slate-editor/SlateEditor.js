@@ -38,6 +38,16 @@ export default class SlateEditor extends React.Component {
     this.setState({ value });
   };
 
+  onKeyDown = (event, change, next) => {
+    const { isLoading } = this.props;
+    if (!isLoading && event.which === 83 && (event.ctrKey || event.metaKey)) {
+      event.preventDefault();
+      this.save();
+      return;
+    }
+    next();
+  };
+
   updateMenu = () => {
     const menu = this.menuRef.current;
     if (!menu) return;
@@ -91,6 +101,7 @@ export default class SlateEditor extends React.Component {
         {isLoaded && (
           <Editor
             {...this.props}
+            onKeyDown={this.onKeyDown}
             value={this.state.value}
             onChange={this.onChange}
             renderEditor={this.renderEditor}
