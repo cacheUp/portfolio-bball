@@ -178,3 +178,11 @@
     display: block;
   }
 }
+
+//User Blogs
+
+.base-page {
+  &.blog-user-page {
+    padding-top: 50px;
+  }
+}

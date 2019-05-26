@@ -7,11 +7,7 @@ import { Container, Col, Row } from "reactstrap";
 class UserBlogs extends React.Component {
   render() {
     return (
-      <BaseLayout
-        {...this.props.auth}
-        headerType={"landing"}
-        className="blog-user-page"
-      >
+      <BaseLayout {...this.props.auth} headerType={"landing"}>
         <div
           className="masthead"
           style={{ backgroundImage: "url('/static/images/home-bg.jpg')" }}
@@ -28,12 +24,12 @@ class UserBlogs extends React.Component {
             </div>
           </Container>
         </div>
-        <BasePage className="blog-body">
+        <BasePage className="blog-user-page">
           <Row>
-            <Col md="6" className="mx-auto">
+            <Col md="6" className="mx-auto text-center">
               Published Blogs
             </Col>
-            <Col md="6" className="mx-auto">
+            <Col md="6" className="mx-auto text-center">
               Draft Blogs
             </Col>
           </Row>
