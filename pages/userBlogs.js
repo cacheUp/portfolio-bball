@@ -2,7 +2,7 @@ import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
-import { Containter, Col, Row } from "reactstrap";
+import { Container, Col, Row } from "reactstrap";
 
 class UserBlogs extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class UserBlogs extends React.Component {
       <BaseLayout
         {...this.props.auth}
         headerType={"landing"}
-        className="blog-listing-page"
+        className="blog-user-page"
       >
         <div
           className="masthead"
