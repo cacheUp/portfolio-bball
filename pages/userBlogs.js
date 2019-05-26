@@ -3,9 +3,21 @@ import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 import { Container, Col, Row } from "reactstrap";
+import { getUserBlogs } from "../actions";
 
 class UserBlogs extends React.Component {
+  static async getInitialProps({ req }) {
+    let blogs = [];
+    try {
+      blogs = await getUserBlogs(req);
+    } catch (err) {
+      console.error(err);
+    }
+    return { blogs };
+  }
   render() {
+    const { blogs } = this.props;
+    console.log(blogs);
     return (
       <BaseLayout {...this.props.auth} headerType={"landing"}>
         <div

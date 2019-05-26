@@ -113,3 +113,9 @@ export const updateBlog = async (blogData, id) => {
       return rejectPromise(error);
     });
 };
+
+export const getUserBlogs = async req => {
+  return await axios
+    .get("http://localhost:3000/api/v1/blogs/me", setAuthHeader(req))
+    .then(response => response.data);
+};
