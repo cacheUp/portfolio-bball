@@ -57,7 +57,7 @@ exports.updateBlog = (req, res) => {
 
   Blog.findById(blogId, (err, foundBlog) => {
     if (err) {
-      return res.status(422).send(err);
+      console.error(err);
     }
     foundBlog.set(blogData);
     foundBlog.updatedAt = new Date();
@@ -72,7 +72,8 @@ exports.updateBlog = (req, res) => {
 
 exports.getUserBlogs = (req, res) => {
   const userId = req.user.sub;
-  Blog.find({ userId }, (err, userBlogs) => {
+
+  Blog.find({ userId }, function(err, userBlogs) {
     if (err) {
       return res.status(422).send(err);
     }

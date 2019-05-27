@@ -11,6 +11,7 @@ import { ControlMenu } from "./ControlMenu";
 import Html from "slate-html-serializer";
 import { rules } from "./rules";
 import { Value } from "slate";
+import { toast } from "react-toastify";
 
 const html = new Html({ rules });
 
