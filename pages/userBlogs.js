@@ -4,7 +4,7 @@ import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 import { Container, Col, Row } from "reactstrap";
 import { getUserBlogs } from "../actions";
-
+import { Link } from "../routes";
 class UserBlogs extends React.Component {
   static async getInitialProps({ req }) {
     let blogs = [];
@@ -27,8 +27,23 @@ class UserBlogs extends React.Component {
     return { published, drafts };
   }
 
+  renderBlogs(blogs) {
+    return (
+      <ul className="user-blogs-list">
+        {blogs.map((blog, index) => (
+          <li key={index}>
+            <Link route={`/blogs/${blog._id}/edit`}>
+              <a>{blog.title}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     const { blogs } = this.props;
+    const { published, drafts } = this.seperateBlogs(blogs);
     console.log(blogs);
     return (
       <BaseLayout {...this.props.auth} headerType={"landing"}>
