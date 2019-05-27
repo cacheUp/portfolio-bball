@@ -69,3 +69,13 @@ exports.updateBlog = (req, res) => {
     });
   });
 };
+
+exports.getUserBlogs = (req, res) => {
+  const userId = req.user.sub;
+  Blog.find({ userId }, (err, userBlogs) => {
+    if (err) {
+      return res.status(422).send(err);
+    }
+    return res.json(userBlogs);
+  });
+};
