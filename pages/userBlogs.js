@@ -15,6 +15,18 @@ class UserBlogs extends React.Component {
     }
     return { blogs };
   }
+
+  seperateBlogs(blogs) {
+    const published = [];
+    const drafts = [];
+
+    blogs.forEach(blog => {
+      blog.status === "draft" ? drafts.push(blog) : published.push(blog);
+    });
+
+    return { published, drafts };
+  }
+
   render() {
     const { blogs } = this.props;
     console.log(blogs);
