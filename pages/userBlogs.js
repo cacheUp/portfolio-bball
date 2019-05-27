@@ -66,10 +66,12 @@ class UserBlogs extends React.Component {
         <BasePage className="blog-user-page">
           <Row>
             <Col md="6" className="mx-auto text-center">
-              Published Blogs
+              <h2>Published Blogs</h2>
+              {this.renderBlogs(published)}
             </Col>
             <Col md="6" className="mx-auto text-center">
-              Draft Blogs
+              <h2>Draft Blogs</h2>
+              {this.renderBlogs(drafts)}
             </Col>
           </Row>
         </BasePage>
