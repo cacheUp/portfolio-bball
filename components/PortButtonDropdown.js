@@ -31,11 +31,9 @@ export default class PortButtonDropdown extends React.Component {
       >
         <DropdownToggle caret size="sm" />
         <DropdownMenu>
-          <DropdownItem header>Header</DropdownItem>
-          <DropdownItem disabled>Action</DropdownItem>
-          <DropdownItem>Another Action</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Another Action</DropdownItem>
+          <DropdownItem>Make Draft / Publish</DropdownItem>
+
+          <DropdownItem>Delete</DropdownItem>
         </DropdownMenu>
       </ButtonDropdown>
     );
