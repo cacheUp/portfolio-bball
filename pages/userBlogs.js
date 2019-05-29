@@ -17,6 +17,14 @@ class UserBlogs extends React.Component {
     return { blogs };
   }
 
+  changeBlogStatus() {
+    alert("change blog status");
+  }
+
+  deleteBlog() {
+    alert("yup");
+  }
+
   seperateBlogs(blogs) {
     const published = [];
     const drafts = [];
