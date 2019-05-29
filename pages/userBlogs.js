@@ -35,8 +35,8 @@ class UserBlogs extends React.Component {
           <li key={index}>
             <Link route={`/blogs/${blog._id}/edit`}>
               <a>{blog.title}</a>
-              <PortButtonDropdown />
             </Link>
+            <PortButtonDropdown />
           </li>
         ))}
       </ul>
