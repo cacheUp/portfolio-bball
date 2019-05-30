@@ -42,7 +42,24 @@ class UserBlogs extends React.Component {
 
   dropdownOptions = blog => {
     const status = this.createStatus(blog.status);
-    return [{ text: status }, { text: "Delete" }];
+    return [
+      {
+        text: status,
+        handlers: {
+          onClick: () => {
+            this.changeBlogStatus;
+          }
+        }
+      },
+      {
+        text: "Delete",
+        handlers: {
+          onClick: () => {
+            this.deleteBlog;
+          }
+        }
+      }
+    ];
   };
 
   renderBlogs(blogs) {
