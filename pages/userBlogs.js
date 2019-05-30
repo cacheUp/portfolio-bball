@@ -47,7 +47,7 @@ class UserBlogs extends React.Component {
         text: status,
         handlers: {
           onClick: () => {
-            this.changeBlogStatus;
+            this.changeBlogStatus();
           }
         }
       },
@@ -55,7 +55,7 @@ class UserBlogs extends React.Component {
         text: "Delete",
         handlers: {
           onClick: () => {
-            this.deleteBlog;
+            this.deleteBlog();
           }
         }
       }
