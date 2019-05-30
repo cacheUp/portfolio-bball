@@ -37,14 +37,12 @@ class UserBlogs extends React.Component {
   }
 
   createStatus(status) {
-    return status === "draft"
-      ? { view: "Publish Story", value: "published" }
-      : { view: "Make a Draft", value: "draft" };
+    return status === "draft" ? "Publish Story" : "Make a Draft";
   }
 
   dropdownOptions = blog => {
-    const blogStatus = this.createStatus(blog.status);
-    return [{ text: blogStatus.view }, { text: "Delete" }];
+    const status = this.createStatus(blog.status);
+    return [{ text: status }, { text: "Delete" }];
   };
 
   renderBlogs(blogs) {
