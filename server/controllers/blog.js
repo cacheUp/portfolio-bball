@@ -58,6 +58,7 @@ exports.updateBlog = (req, res) => {
   Blog.findById(blogId, (err, foundBlog) => {
     if (err) {
       console.error(err);
+      return res.status(422).send(err);
     }
     foundBlog.set(blogData);
     foundBlog.updatedAt = new Date();
