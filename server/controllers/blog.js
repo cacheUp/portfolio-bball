@@ -62,7 +62,7 @@ exports.updateBlog = (req, res) => {
       return res.status(422).send(err);
     }
     if (blogData.status && blogData.status === "published" && !foundBlog.slug) {
-      foundBlog.slug = slugify("some string", {
+      foundBlog.slug = slugify(foundBlog.title, {
         replacement: "-", // replace spaces with replacement
         remove: null, // regex to remove characters
         lower: true // result in lower case
