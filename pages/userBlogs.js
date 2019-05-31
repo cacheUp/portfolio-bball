@@ -3,8 +3,8 @@ import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 import { Container, Col, Row } from "reactstrap";
-import { getUserBlogs } from "../actions";
-import { Link } from "../routes";
+import { getUserBlogs, updateBlog } from "../actions";
+import { Link, Router } from "../routes";
 import PortButtonDropdown from "../components/PortButtonDropdown";
 class UserBlogs extends React.Component {
   static async getInitialProps({ req }) {
@@ -17,8 +17,14 @@ class UserBlogs extends React.Component {
     return { blogs };
   }
 
-  changeBlogStatus() {
-    alert("change blog status");
+  changeBlogStatus(status, blogId) {
+    updateBlog({ status }, blogId)
+      .then(() => {
+        Router.pushRoute("/userBlogs");
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   deleteBlog() {
@@ -37,17 +43,22 @@ class UserBlogs extends React.Component {
   }
 
   createStatus(status) {
-    return status === "draft" ? "Publish Story" : "Make a Draft";
+    return status === "draft"
+      ? { view: "Publish Story", value: "published" }
+      : { view: "Make a Draft", value: "draft" };
   }
 
   dropdownOptions = blog => {
     const status = this.createStatus(blog.status);
     return [
       {
-        text: status,
+        text: status.view,
         handlers: {
           onClick: () => {
-            this.changeBlogStatus();
+            {
+              console.log(status.value, blog._id);
+            }
+            this.changeBlogStatus(status.value, blog._id);
           }
         }
       },
