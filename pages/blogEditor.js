@@ -5,6 +5,7 @@ import withAuth from "../components/hoc/withAuth";
 import SlateEditor from "../components/slate-editor/SlateEditor";
 import { createBlog } from "../actions";
 import { Router } from "../routes";
+import { toast } from "react-toastify";
 
 class BlogEditor extends React.Component {
   constructor(props) {
