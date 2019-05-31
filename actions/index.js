@@ -117,14 +117,21 @@ export const updateBlog = async (blogData, id) => {
 export const getUserBlogs = async req => {
   return await axios
     .get("http://localhost:3000/api/v1/blogs/me", setAuthHeader(req))
-    .then(response => response.data);
+    .then(response => response.data)
+    .catch(error => {
+      return rejectPromise(error);
+    });
 };
 
 export const deleteBlog = blogId => {
   return axios.delete(
     `http://localhost:3000/api/v1/blogs/${blogId}`,
-    setAuthHeader().then(response => {
-      response.data;
-    })
+    setAuthHeader()
+      .then(response => {
+        response.data;
+      })
+      .catch(error => {
+        return rejectPromise(error);
+      })
   );
 };
