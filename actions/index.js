@@ -119,3 +119,12 @@ export const getUserBlogs = async req => {
     .get("http://localhost:3000/api/v1/blogs/me", setAuthHeader(req))
     .then(response => response.data);
 };
+
+export const deleteBlog = blogId => {
+  return axios.delete(
+    `http://localhost:3000/api/v1/blogs/${blogId}`,
+    setAuthHeader().then(response => {
+      response.data;
+    })
+  );
+};
