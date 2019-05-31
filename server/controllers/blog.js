@@ -89,3 +89,13 @@ exports.getUserBlogs = (req, res) => {
     return res.json(userBlogs);
   });
 };
+
+exports.deleteBlog = (req, res) => {
+  const blogId = req.params.id;
+  Blog.deleteOne({ _id: blogId }, err => {
+    if (err) {
+      return res.status(422).send(err);
+    }
+    res.json({ status: "deleted" });
+  });
+};

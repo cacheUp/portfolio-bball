@@ -26,6 +26,13 @@ router.patch(
   blogCtrl.updateBlog
 );
 
+router.delete(
+  "/:id",
+  authService.checkJWT,
+  authService.checkRole("siteOwner"),
+  blogCtrl.deleteBlog
+);
+
 // router.get("", blogCtrl.getblogs);
 // router.get("/:id", blogCtrl.getblogById);
 // router.patch(
