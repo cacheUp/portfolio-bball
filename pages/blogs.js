@@ -4,8 +4,18 @@ import BasePage from "../components/shared/BasePage";
 import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
 import { Link } from "../routes";
+import { getBlogs } from "../actions";
 
 class Blogs extends React.Component {
+  static async getInitialProps({ req }) {
+    let blogs = [];
+    try {
+      blogs = await getBlogs(req);
+    } catch (err) {
+      console.error(err);
+    }
+    return { blogs };
+  }
   render() {
     return (
       <BaseLayout
