@@ -34,6 +34,7 @@ class Blogs extends React.Component {
     ));
   render() {
     const { blogs } = this.props;
+    console.log(blogs);
 
     return (
       <BaseLayout
