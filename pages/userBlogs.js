@@ -3,7 +3,7 @@ import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
 import { Container, Col, Row } from "reactstrap";
-import { getUserBlogs, updateBlog } from "../actions";
+import { getUserBlogs, updateBlog, deleteBlog } from "../actions";
 import { Link, Router } from "../routes";
 import PortButtonDropdown from "../components/PortButtonDropdown";
 class UserBlogs extends React.Component {
@@ -26,9 +26,19 @@ class UserBlogs extends React.Component {
         console.error(err);
       });
   }
+  deleteBlogWarning = blogId => {
+    const res = confirm("are you sure you want to delete this blog post?");
+    if (res) {
+      this.deleteBlog(blogId);
+    }
+  };
 
-  deleteBlog() {
-    alert("yup");
+  deleteBlog(blogId) {
+    deleteBlog(blogId)
+      .then(status => {
+        Router.pushRoute("/userBlogs");
+      })
+      .catch(err => console.error(err.message));
   }
 
   seperateBlogs(blogs) {
@@ -66,7 +76,7 @@ class UserBlogs extends React.Component {
         text: "Delete",
         handlers: {
           onClick: () => {
-            this.deleteBlog();
+            this.deleteBlogWarning(blog._id);
           }
         }
       }

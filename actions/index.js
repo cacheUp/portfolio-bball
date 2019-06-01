@@ -124,14 +124,12 @@ export const getUserBlogs = async req => {
 };
 
 export const deleteBlog = blogId => {
-  return axios.delete(
-    `http://localhost:3000/api/v1/blogs/${blogId}`,
-    setAuthHeader()
-      .then(response => {
-        response.data;
-      })
-      .catch(error => {
-        return rejectPromise(error);
-      })
-  );
+  return axios
+    .delete(`http://localhost:3000/api/v1/blogs/${blogId}`, setAuthHeader())
+    .then(response => {
+      response.data;
+    })
+    .catch(error => {
+      return rejectPromise(error);
+    });
 };
