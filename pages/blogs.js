@@ -16,7 +16,10 @@ class Blogs extends React.Component {
     }
     return { blogs };
   }
+  renderBlogs = blogs => {};
   render() {
+    const { blogs } = this.props;
+
     return (
       <BaseLayout
         {...this.props.auth}
