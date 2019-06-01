@@ -133,3 +133,9 @@ export const deleteBlog = blogId => {
       return rejectPromise(error);
     });
 };
+
+export const getBlogs = async req => {
+  return await axios
+    .get("http://localhost:3000/api/v1/blogs")
+    .then(response => response.data);
+};
