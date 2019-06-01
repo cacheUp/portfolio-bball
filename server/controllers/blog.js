@@ -108,3 +108,13 @@ exports.deleteBlog = (req, res) => {
     res.json({ status: "deleted" });
   });
 };
+
+exports.getBlogBySlug = (req, res) => {
+  const slug = req.params.slug;
+  Blog.find({ slug }, (err, foundBlog) => {
+    if (err) {
+      return res.status(422).send(err);
+    }
+    return res.json(foundBlog);
+  });
+};
