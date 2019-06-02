@@ -6,10 +6,7 @@ class BlogDetail extends React.Component {
   render() {
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage>
-          {" "}
-          <h1> I am Cv Page </h1>
-        </BasePage>
+        <BasePage title="I am Blog Detail Page"> </BasePage>
       </BaseLayout>
     );
   }
