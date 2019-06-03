@@ -101,6 +101,27 @@ export const getBlogById = blogId => {
     .then(response => response.data);
 };
 
+export const getBlogs = async req => {
+  return await axios
+    .get("http://localhost:3000/api/v1/blogs")
+    .then(response => response.data);
+};
+
+export const getBlogBySlug = async (req, slug) => {
+  return await axios
+    .get(`http://localhost:3000/api/v1/blogs/s/${slug}`)
+    .then(response => response.data);
+};
+
+export const getUserBlogs = async req => {
+  return await axios
+    .get("http://localhost:3000/api/v1/blogs/me", setAuthHeader(req))
+    .then(response => response.data)
+    .catch(error => {
+      return rejectPromise(error);
+    });
+};
+
 export const updateBlog = async (blogData, id) => {
   return await axios
     .patch(
@@ -108,15 +129,6 @@ export const updateBlog = async (blogData, id) => {
       blogData,
       setAuthHeader()
     )
-    .then(response => response.data)
-    .catch(error => {
-      return rejectPromise(error);
-    });
-};
-
-export const getUserBlogs = async req => {
-  return await axios
-    .get("http://localhost:3000/api/v1/blogs/me", setAuthHeader(req))
     .then(response => response.data)
     .catch(error => {
       return rejectPromise(error);
@@ -132,10 +144,4 @@ export const deleteBlog = blogId => {
     .catch(error => {
       return rejectPromise(error);
     });
-};
-
-export const getBlogs = async req => {
-  return await axios
-    .get("http://localhost:3000/api/v1/blogs")
-    .then(response => response.data);
 };
