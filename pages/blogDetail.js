@@ -2,6 +2,7 @@ import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import { getBlogBySlug } from "../actions";
+import { Row, Col } from "reactstrap";
 
 class BlogDetail extends React.Component {
   static async getInitialProps({ query }) {
@@ -20,7 +21,13 @@ class BlogDetail extends React.Component {
     console.log(blogs);
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage title="I am Blog Detail Page"> </BasePage>
+        <BasePage title={blogs.title} className="blog-detail-page">
+          <Row>
+            <Col md={{ size: 8, offset: 3 }} offset="2" className="offset-md-2">
+              <div dangerouslySetInnerHTML={{ __html: blogs.story }} />
+            </Col>
+          </Row>
+        </BasePage>
       </BaseLayout>
     );
   }
