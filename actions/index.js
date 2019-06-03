@@ -107,7 +107,7 @@ export const getBlogs = async req => {
     .then(response => response.data);
 };
 
-export const getBlogBySlug = async (req, slug) => {
+export const getBlogBySlug = async slug => {
   return await axios
     .get(`http://localhost:3000/api/v1/blogs/s/${slug}`)
     .then(response => response.data);
