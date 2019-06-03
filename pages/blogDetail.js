@@ -3,6 +3,7 @@ import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 
 class BlogDetail extends React.Component {
+  static getInitialProps() {}
   render() {
     return (
       <BaseLayout {...this.props.auth}>
