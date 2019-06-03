@@ -111,7 +111,7 @@ exports.deleteBlog = (req, res) => {
 
 exports.getBlogBySlug = (req, res) => {
   const slug = req.params.slug;
-  Blog.find({ slug }, (err, foundBlog) => {
+  Blog.findOne({ slug }, (err, foundBlog) => {
     if (err) {
       return res.status(422).send(err);
     }
