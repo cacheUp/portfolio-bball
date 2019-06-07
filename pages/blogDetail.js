@@ -18,10 +18,10 @@ class BlogDetail extends React.Component {
 
   render() {
     const { blogs } = this.props;
-    console.log(blogs);
+
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage title={blogs.title} className="blog-detail-page">
+        <BasePage className="blog-detail-page">
           <Row>
             <Col md={{ size: 8, offset: 3 }} offset="2" className="offset-md-2">
               <div dangerouslySetInnerHTML={{ __html: blogs.story }} />
