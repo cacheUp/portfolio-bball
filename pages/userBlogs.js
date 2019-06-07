@@ -121,6 +121,9 @@ class UserBlogs extends React.Component {
           </Container>
         </div>
         <BasePage className="blog-user-page">
+          <Link route="/blogs/new">
+            <a>Create New Blog</a>
+          </Link>
           <Row>
             <Col md="6" className="mx-auto text-center">
               <h2 className="blog-status-title">Published Blogs</h2>
