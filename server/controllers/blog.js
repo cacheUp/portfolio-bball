@@ -5,12 +5,14 @@ const lock = new AsyncLock();
 console.log("async");
 
 exports.getBlogs = (req, res) => {
-  Blog.find({ status: "published" }, (err, publishedBlogs) => {
-    if (err) {
-      return res.status(422).send(err);
-    }
-    return res.json(publishedBlogs);
-  });
+  Blog.find({ status: "published" })
+    .sort({ startDate: 1 })
+    .exec((err, publishedBlogs) => {
+      if (err) {
+        return res.status(422).send(err);
+      }
+      return res.json(publishedBlogs);
+    });
 };
 
 exports.getBlogById = (req, res) => {
