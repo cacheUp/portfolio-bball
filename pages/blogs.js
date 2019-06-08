@@ -6,7 +6,7 @@ import moment from "moment";
 import { Link } from "../routes";
 import { getBlogs } from "../actions";
 
-function shortenText(text, maxLength) {
+function shortenText(text, maxLength = 124) {
   if (text && text.length > maxLength) {
     return `${text.substring(0, maxLength)} ...`;
   }
@@ -29,7 +29,7 @@ class Blogs extends React.Component {
         <Link route={`/blogs/${blog.slug}`}>
           <a>
             <h2 className="post-title">{blog.title}</h2>
-            <h3 className="post-subtitle">{blog.subtitle}</h3>
+            <h3 className="post-subtitle">{shortenText(blog.subtitle)}</h3>
           </a>
         </Link>
         <p className="post-meta">
