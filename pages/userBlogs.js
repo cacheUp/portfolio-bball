@@ -2,7 +2,7 @@ import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import withAuth from "../components/hoc/withAuth";
-import { Container, Col, Row } from "reactstrap";
+import { Container, Col, Row, Button } from "reactstrap";
 import { getUserBlogs, updateBlog, deleteBlog } from "../actions";
 import { Link, Router } from "../routes";
 import PortButtonDropdown from "../components/PortButtonDropdown";
@@ -114,16 +114,18 @@ class UserBlogs extends React.Component {
               <div className="col-lg-8 col-md-10 mx-auto">
                 <div className="site-heading">
                   <h1>Blogs Dashboard</h1>
-                  <span className="subheading">Lets write some blogs...</span>
+                  <span className="subheading">
+                    Lets write some blogs...{" "}
+                    <Link route="/blogs/new">
+                      <Button color="primary">Create New Blog</Button>
+                    </Link>
+                  </span>
                 </div>
               </div>
             </div>
           </Container>
         </div>
         <BasePage className="blog-user-page">
-          <Link route="/blogs/new">
-            <a>Create New Blog</a>
-          </Link>
           <Row>
             <Col md="6" className="mx-auto text-center">
               <h2 className="blog-status-title">Published Blogs</h2>

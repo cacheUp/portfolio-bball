@@ -6,6 +6,13 @@ import moment from "moment";
 import { Link } from "../routes";
 import { getBlogs } from "../actions";
 
+function shortenText(text, maxLength) {
+  if (text && text.length > maxLength) {
+    return `${text.substring(0, maxLength)} ...`;
+  }
+  return text;
+}
+
 class Blogs extends React.Component {
   static async getInitialProps({ req }) {
     let blogs = [];
