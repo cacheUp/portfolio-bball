@@ -5,13 +5,7 @@ import { Container, Row, Col } from "reactstrap";
 import moment from "moment";
 import { Link } from "../routes";
 import { getBlogs } from "../actions";
-
-function shortenText(text, maxLength = 124) {
-  if (text && text.length > maxLength) {
-    return `${text.substring(0, maxLength)} ...`;
-  }
-  return text;
-}
+import { shortenText } from "../helpers/utils";
 
 class Blogs extends React.Component {
   static async getInitialProps({ req }) {
