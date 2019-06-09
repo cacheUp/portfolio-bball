@@ -1,6 +1,7 @@
 import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
+import { Row, Col } from "reactstrap";
 
 class About extends React.Component {
   render() {
