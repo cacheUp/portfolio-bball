@@ -12,3 +12,9 @@
   -o-animation: $animationType; /* Opera < 12.1 */
   animation: $animationType;
 }
+
+@mixin animation-fill-mode($animationMode) {
+  -webkit-animation-fill-mode: $animationMode; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: $animationMode;
+  animation-fill-mode: $animationMode;
+}
