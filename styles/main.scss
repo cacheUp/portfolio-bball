@@ -1,11 +1,12 @@
 @import "./shared/fonts";
-@import "./index";
-@import "./header";
 @import "./shared/colors";
+@import "./index";
 @import "./portfolios";
-@import "/blogs";
-@import "/slate-editor";
-@import "/about";
+@import "./blogs";
+@import "./about";
+@import "./header";
+
+@import "./slate-editor";
 
 html,
 body,
