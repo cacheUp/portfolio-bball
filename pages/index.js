@@ -19,6 +19,13 @@ class Index extends React.Component {
       "SQL"
     ];
   }
+  componentDidMount() {
+    this.animateCard();
+  }
+
+  componentWillUnmount() {
+    this.cardAnimationInterval && clearInterval(this.cardAnimationInterval);
+  }
 
   animateCard = () => {
     this.cardAnimationInterval = setInterval(() => {
