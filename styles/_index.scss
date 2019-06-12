@@ -134,3 +134,10 @@ body {
 .back {
   transform: rotateY(0deg);
 }
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
