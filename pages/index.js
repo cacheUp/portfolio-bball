@@ -37,7 +37,7 @@ class Index extends React.Component {
     const { isFlipping } = this.state;
     return (
       <BaseLayout
-        className={`cover ${isFlipping ? "cover" : "cover-0"}`}
+        className={`${isFlipping ? "cover-1" : "cover-0"}`}
         {...this.props.auth}
         headerType="index"
       >
