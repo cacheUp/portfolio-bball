@@ -131,13 +131,19 @@ body {
   transform: rotateY(-180deg);
 }
 
-.back {
+.front {
   transform: rotateY(0deg);
+  z-index: 99999;
 }
 
 .front,
 .back {
+  backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.back {
+  transform: rotateY(180deg);
 }
