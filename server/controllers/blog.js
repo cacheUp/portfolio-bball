@@ -15,8 +15,9 @@ exports.getBlogById = (req, res) => {
 };
 
 exports.createBlog = (req, res) => {
+  const lockId = req.query.lockId;
   lock.acquire(
-    key,
+    lockId,
     function(done) {
       const blogData = req.body;
 
