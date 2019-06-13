@@ -30,7 +30,7 @@ class Index extends React.Component {
   animateCard = () => {
     this.cardAnimationInterval = setInterval(() => {
       this.setState({ isFlipping: !this.state.isFlipping });
-    }, 3000);
+    }, 10000);
   };
   render() {
     const { isAuthenticated, user } = this.props.auth;
@@ -77,7 +77,7 @@ class Index extends React.Component {
                         className="image"
                         src="/static/images/section-2.png"
                       />
-                      <div className="shadow-custom">
+                      <div className="shadow-custom shadow-custom-2">
                         <div className="shadow-inner"> </div>
                       </div>
                     </div>
