@@ -9,6 +9,7 @@ import {
   NavItem,
   NavLink
 } from "reactstrap";
+import ActiveLink from "../ActiveLink";
 
 import auth0 from "../../services/auth0";
 
@@ -16,9 +17,9 @@ const BsNavLink = props => {
   const { route, title } = props;
 
   return (
-    <Link href={route}>
+    <ActivLink href={route}>
       <a className="nav-link port-navbar-link"> {title} </a>
-    </Link>
+    </ActivLink>
   );
 };
 
