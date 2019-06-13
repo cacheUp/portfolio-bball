@@ -2,7 +2,9 @@ import React, { Children } from "react";
 import { Link } from "../routes";
 
 const ActiveLink = ({ children, ...props }) => {
-  return <div>hey</div>;
+  const child = Children.only(children);
+  let className = child.props.className;
+  return <Link {...props}>{React.cloneElement(child, { className })}</Link>;
 };
 
 export default ActiveLink;
