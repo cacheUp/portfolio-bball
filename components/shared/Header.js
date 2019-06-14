@@ -83,9 +83,15 @@ export default class Header extends React.Component {
             Blog
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem>Blogs</DropdownItem>
-            <DropdownItem>Blogs Dashboard</DropdownItem>
-            <DropdownItem>Create A Blog</DropdownItem>
+            <DropdownItem>
+              <BsNavLink route="/blogs" title="Blogs" />
+            </DropdownItem>
+            <DropdownItem>
+              <BsNavLink route="/blogs/new" title="Create A Blog" />
+            </DropdownItem>
+            <DropdownItem>
+              <BsNavLink route="/blogs/dashboard" title="Blogs Dashboard" />
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       );
