@@ -54,7 +54,8 @@ export default class Header extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      dropdownOpen: false
     };
   }
   toggle() {
@@ -67,8 +68,10 @@ export default class Header extends React.Component {
     const { isSiteOwner } = this.props;
     if (isSiteOwner) {
       return (
-        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>Dropdown</DropdownToggle>
+        <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle nav caret>
+            Blogs
+          </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>Header</DropdownItem>
             <DropdownItem>Some Action</DropdownItem>
