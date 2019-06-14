@@ -63,28 +63,38 @@ export default class Header extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+  toggleDropdown = () => {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  };
 
   renderBlogMenu = () => {
     const { isSiteOwner } = this.props;
     if (isSiteOwner) {
       return (
-        <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+        <Dropdown
+          nav
+          className="port-navbar-link"
+          isOpen={this.state.dropdownOpen}
+          toggle={this.toggleDropdown}
+        >
           <DropdownToggle nav caret>
-            Blogs
+            Blog
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem header>Header</DropdownItem>
-            <DropdownItem>Some Action</DropdownItem>
-            <DropdownItem disabled>Action (disabled)</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Foo Action</DropdownItem>
-            <DropdownItem>Bar Action</DropdownItem>
-            <DropdownItem>Quo Action</DropdownItem>
+            <DropdownItem>Blogs</DropdownItem>
+            <DropdownItem>Blogs Dashboard</DropdownItem>
+            <DropdownItem>Create A Blog</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       );
     }
-    return <BsNavLink route="/blogs" title="Blog" />;
+    return (
+      <NavItem className="port-navbar-item">
+        <BsNavLink route="/blogs" title="Blog" />
+      </NavItem>
+    );
   };
   render() {
     const { isAuthenticated, user, className } = this.props;
@@ -112,9 +122,9 @@ export default class Header extends React.Component {
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/portfolios" title="Portfolio" />
               </NavItem>
-              <NavItem className="port-navbar-item">
-                {this.renderBlogMenu()}
-              </NavItem>
+
+              {this.renderBlogMenu()}
+
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/cv" title="Cv" />
               </NavItem>
