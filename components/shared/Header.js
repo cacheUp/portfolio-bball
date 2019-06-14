@@ -7,7 +7,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from "reactstrap";
 import ActiveLink from "../ActiveLink";
 
@@ -59,6 +63,26 @@ export default class Header extends React.Component {
     });
   }
 
+  renderBlogMenu = () => {
+    const { isSiteOwner } = this.props;
+    if (isSiteOwner) {
+      return (
+        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle caret>Dropdown</DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem header>Header</DropdownItem>
+            <DropdownItem>Some Action</DropdownItem>
+            <DropdownItem disabled>Action (disabled)</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>Foo Action</DropdownItem>
+            <DropdownItem>Bar Action</DropdownItem>
+            <DropdownItem>Quo Action</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      );
+    }
+    return <BsNavLink route="/blogs" title="Blog" />;
+  };
   render() {
     const { isAuthenticated, user, className } = this.props;
 
@@ -85,9 +109,7 @@ export default class Header extends React.Component {
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/portfolios" title="Portfolio" />
               </NavItem>
-              <NavItem className="port-navbar-item">
-                <BsNavLink route="/blogs" title="Blog" />
-              </NavItem>
+              <NavItem className="port-navbar-item" />
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/cv" title="Cv" />
               </NavItem>
