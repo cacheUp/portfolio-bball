@@ -3,13 +3,20 @@ import Header from "../shared/Header";
 import Head from "next/head";
 
 const BaseLayout = props => {
-  const { className, children, isAuthenticated, user, isSiteOwner } = props;
+  const {
+    className,
+    children,
+    isAuthenticated,
+    user,
+    isSiteOwner,
+    title
+  } = props;
   const headerType = props.headerType || "default";
 
   return (
     <React.Fragment>
       <Head>
-        <title>Bradley Ball</title>
+        <title>{title}</title>
         <script src="https://kit.fontawesome.com/b682f54eb6.js" />
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"

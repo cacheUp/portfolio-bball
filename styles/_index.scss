@@ -84,10 +84,16 @@ body {
 @media (max-width: 991px) {
   .hero-section {
     width: 341px;
+    height: 445px;
 
     &-content {
       width: 341px;
     }
+    // .front,
+    // .back {
+    //   display: flex;
+    //   justify-content: center;
+    // }
   }
 
   .hero-welcome-text > h1 {
@@ -99,6 +105,9 @@ body {
   position: absolute;
   width: 1762px;
   height: 493px;
+  img {
+    max-width: 100%;
+  }
 }
 
 .shadow-custom {
