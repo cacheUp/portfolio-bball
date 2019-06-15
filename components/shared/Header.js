@@ -80,7 +80,7 @@ export default class Header extends React.Component {
           isOpen={this.state.dropdownOpen}
           toggle={this.toggleDropdown}
         >
-          <DropdownToggle nav caret>
+          <DropdownToggle className="port-dropdown-toggle" nav caret>
             Blog
           </DropdownToggle>
           <DropdownMenu>
