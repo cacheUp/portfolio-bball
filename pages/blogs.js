@@ -39,6 +39,7 @@ class Blogs extends React.Component {
 
     return (
       <BaseLayout
+        title="Bradley Ball - Newest Blogs to Read"
         {...this.props.auth}
         headerType={"landing"}
         className="blog-listing-page"
