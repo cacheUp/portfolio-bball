@@ -40,6 +40,7 @@ class Index extends React.Component {
         className={`${isFlipping ? "cover-1" : "cover-0"}`}
         {...this.props.auth}
         headerType="index"
+        title="Bradley Ball"
       >
         <div className="main-section">
           <div className="background-image">
