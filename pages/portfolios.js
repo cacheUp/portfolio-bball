@@ -82,7 +82,7 @@ class Portfolios extends React.Component {
           {isAuthenticated && isSiteOwner && (
             <Button
               onClick={() => {
-                Router.pushRoute("/portfolioNew");
+                Router.pushRoute("/portfolios/new");
               }}
               color="success"
               className="create-port-btn"
