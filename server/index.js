@@ -12,6 +12,12 @@ const bodyParser = require("body-parser");
 const bookRoutes = require("./routes/book");
 const portfolioRoutes = require("./routes/portfolio");
 const blogRoutes = require("./routes/blog");
+const robotsOptions = {
+  root: path.join(__dirname, "../static"),
+  headers: {
+    "Content-Type": "text/plain;charset=UTF-8"
+  }
+};
 mongoose
   .connect(config.DB_URI, { useNewUrlParser: true })
   .then(() => console.log("database connected"))
@@ -26,6 +32,10 @@ app
     server.use("/api/v1/books", bookRoutes);
     server.use("/api/v1/portfolios", portfolioRoutes);
     server.use("/api/v1/blogs", blogRoutes);
+
+    server.get("/robots.txt", (req, res) => {
+      return res.status(200).sendFile("robots.txt", robotsOptions);
+    });
 
     server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       res.json(secretData);
