@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const next = require("next");
 const routes = require("../routes");
 const authService = require("./services/auth");
@@ -7,11 +8,11 @@ const app = next({ dev });
 const handle = routes.getRequestHandler(app);
 const mongoose = require("mongoose");
 const config = require("./config");
-const Book = require("./models/book");
 const bodyParser = require("body-parser");
 const bookRoutes = require("./routes/book");
 const portfolioRoutes = require("./routes/portfolio");
 const blogRoutes = require("./routes/blog");
+
 const robotsOptions = {
   root: path.join(__dirname, "../static"),
   headers: {
