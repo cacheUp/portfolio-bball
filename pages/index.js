@@ -60,6 +60,7 @@ class Index extends React.Component {
                         </div>
                       </div>
                       <img
+                        alt="guy prgramming welcom picture"
                         className="image"
                         src="/static/images/section-1.png"
                       />
@@ -75,6 +76,7 @@ class Index extends React.Component {
                         </div>
                       </div>
                       <img
+                        alt="guy prgramming welcom picture"
                         className="image"
                         src="/static/images/section-2.png"
                       />
