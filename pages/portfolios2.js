@@ -8,7 +8,7 @@ import { Row, Col, Button } from "reactstrap";
 import { getPortfolios, deletePortfolio } from "../actions";
 import PortfolioCard from "../components/portfolios/PorfolioCard";
 
-class Portfolios extends React.Component {
+class Portfolios2 extends React.Component {
   static async getInitialProps() {
     let portfolios = [];
     try {
@@ -77,7 +77,11 @@ class Portfolios extends React.Component {
     const { portfolios } = this.props;
     const { isAuthenticated, isSiteOwner } = this.props.auth;
     return (
-      <BaseLayout title="Bradley Ball - View My Projects" {...this.props.auth}>
+      <BaseLayout
+        cannonical="/portfolios"
+        title="Bradley Ball - View My Projects"
+        {...this.props.auth}
+      >
         <BasePage className="portfolio-page" title="I am Portfolios Page">
           {isAuthenticated && isSiteOwner && (
             <Button
@@ -98,4 +102,4 @@ class Portfolios extends React.Component {
   }
 }
 
-export default Portfolios;
+export default Portfolios2;
