@@ -9,8 +9,7 @@ const BaseLayout = props => {
     isAuthenticated,
     user,
     isSiteOwner,
-    title,
-    cannonical
+    title
   } = props;
   const headerType = props.headerType || "default";
 
@@ -40,9 +39,7 @@ const BaseLayout = props => {
           property="og:description"
           content="My name is Bradley Ball and I am a software engineer. I love solving problems and collaberating with teammates to get the job done. React is my favorite frontend framework and nodejs is my preferred backend technology."
         />
-        {connonical && (
-          <link rel="cannonical" href={`http://localhost:3000${cannonical}`} />
-        )}
+        <link rel="icon" type="image/ico" href="/static/favicon.ico" />
         <script src="https://kit.fontawesome.com/b682f54eb6.js" />
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
