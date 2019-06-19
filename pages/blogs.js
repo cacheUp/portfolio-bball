@@ -78,7 +78,10 @@ class Blogs extends React.Component {
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <ul className="list-inline text-center">
                     <li className="list-inline-item">
-                      <a href="#">
+                      <a
+                        target="_blank"
+                        href="https://stackoverflow.com/users/11483018/brad-ball"
+                      >
                         <span className="fa-stack fa-lg">
                           <i className="fas fa-circle fa-stack-2x" />
                           <i className="fab fa-stack-overflow fa-stack-1x fa-inverse" />
@@ -86,7 +89,7 @@ class Blogs extends React.Component {
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a href="#">
+                      <a target="_blank" href="https://github.com/cacheUp">
                         <span className="fa-stack fa-lg">
                           <i className="fas fa-circle fa-stack-2x" />
                           <i className="fab fa-github fa-stack-1x fa-inverse" />
