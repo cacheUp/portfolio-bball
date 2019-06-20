@@ -36,7 +36,6 @@ class Auth {
   }
 
   login() {
-    console.log(process.env.BASE_URL);
     this.auth0.authorize();
   }
 

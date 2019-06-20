@@ -33,7 +33,7 @@ const BaseLayout = props => {
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:locale" content="en_EU" />
-        <meta property="og:url" content="http://localhost:3000" />
+        <meta property="og:url" content={process.env.BASE_URL} />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"

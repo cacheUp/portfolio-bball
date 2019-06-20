@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/main.scss";
 import "react-toastify/dist/ReactToastify.css";
 
-const namespace = "http://localhost:3000";
+const namespace = process.env.NAMESPACE;
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
