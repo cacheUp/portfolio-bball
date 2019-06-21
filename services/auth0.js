@@ -29,7 +29,6 @@ class Auth {
           resolve();
         } else if (err) {
           reject(err);
-          console.log(err);
         }
       });
     });

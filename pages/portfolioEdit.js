@@ -12,10 +12,8 @@ class PortfolioEdit extends React.Component {
     let portfolio = {};
     try {
       portfolio = await getPortfolioById(query.id);
-    } catch (err) {
-      console.error(error);
-    }
-    console.log(portfolio);
+    } catch (err) {}
+
     return { portfolio };
   }
   constructor(props) {
@@ -44,7 +42,6 @@ class PortfolioEdit extends React.Component {
   render() {
     const { error } = this.state;
     const { portfolio } = this.props;
-    console.log(this.props);
 
     return (
       <BaseLayout {...this.props.auth}>

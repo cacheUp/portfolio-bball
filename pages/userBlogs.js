@@ -65,9 +65,6 @@ class UserBlogs extends React.Component {
         text: status.view,
         handlers: {
           onClick: () => {
-            {
-              console.log(status.value, blog._id);
-            }
             this.changeBlogStatus(status.value, blog._id);
           }
         }
@@ -101,7 +98,7 @@ class UserBlogs extends React.Component {
   render() {
     const { blogs } = this.props;
     const { published, drafts } = this.seperateBlogs(blogs);
-    console.log(blogs);
+
     return (
       <BaseLayout {...this.props.auth} headerType={"landing"}>
         <div

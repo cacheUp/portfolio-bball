@@ -25,7 +25,6 @@ const validateInputs = values => {
 
 const PortfolioCreateForm = ({ initialValues, onSubmit, error }) => (
   <div>
-    {console.log(initialValues)}
     <h1>Any place in your app!</h1>
     <Formik
       initialValues={initialValues}

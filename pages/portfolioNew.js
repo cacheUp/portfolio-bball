@@ -32,7 +32,7 @@ class PortfolioNew extends React.Component {
     createPortfolio(portfolioData)
       .then(portfolio => {
         setSubmitting(false);
-        console.log(portfolio);
+
         this.setState({ error: undefined });
         Router.pushRoute("/portfolios");
       })

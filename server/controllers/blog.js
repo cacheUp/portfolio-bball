@@ -2,7 +2,6 @@ const Blog = require("../models/blog");
 const AsyncLock = require("async-lock");
 const slugify = require("slugify");
 const lock = new AsyncLock();
-console.log("async");
 
 exports.getBlogs = (req, res) => {
   Blog.find({ status: "published" })
