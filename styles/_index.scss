@@ -102,9 +102,10 @@ body {
 }
 
 .background-image {
+  display: flex;
+  justify-content: center;
   position: absolute;
-  width: 1762px;
-  height: 493px;
+
   img {
     max-width: 100%;
   }
