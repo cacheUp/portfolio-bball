@@ -60,6 +60,11 @@ body {
   text-transform: uppercase;
   font-size: 27px;
   margin-top: 80px;
+  font-weight: 400;
+  span {
+    font-weight: 600;
+    font-size: 32px;
+  }
 }
 
 .hero-welcome-bio {
@@ -102,6 +107,7 @@ body {
 }
 
 .background-image {
+  height: 600px;
   display: flex;
   justify-content: center;
   position: absolute;

@@ -91,8 +91,8 @@ class Index extends React.Component {
                 <div className="hero-welcome-text">
                   <h1>
                     {isAuthenticated && (
-                      <span>
-                        <b>{user.name}</b>
+                      <span className="skinny-h1">
+                        <b>{user.name}, </b>
                       </span>
                     )}
                     Welcome to the portfolio website of Bradley Ball. Get
