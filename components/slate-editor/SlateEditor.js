@@ -124,6 +124,11 @@ export default class SlateEditor extends React.Component {
         {children}
         <div>Bradley Ball</div>
         <HoverMenu ref={this.menuRef} editor={editor} />
+        <style jsx>
+          {`
+            @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+          `}
+        </style>
       </React.Fragment>
     );
   };
