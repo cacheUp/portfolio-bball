@@ -12,6 +12,7 @@ const BaseLayout = props => {
     title
   } = props;
   const headerType = props.headerType || "default";
+  const title = props.title || "Bradley Ball";
 
   return (
     <React.Fragment>
