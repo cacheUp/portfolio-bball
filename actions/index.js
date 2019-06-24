@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 import { getCookieFromReq } from "../helpers/utils";
 const axiosInstance = axios.create({
-  baseUrl: "http://localhost:3000/api/v1",
+  baseUrl: "https://portfolio-bball.herokuapp.com/api/v1",
   timeout: 3000
 });
 
@@ -27,7 +27,7 @@ export const getSecretData = async req => {
 
 export const getPortfolios = async req => {
   return await axiosInstance
-    .get("http://localhost:3000/api/v1/portfolios")
+    .get("https://portfolio-bball.herokuapp.com/api/v1/portfolios")
     .then(response => response.data);
 };
 
@@ -44,7 +44,7 @@ const rejectPromise = err => {
 export const createPortfolio = async portfolioData => {
   return await axios
     .post(
-      "http://localhost:3000/api/v1/portfolios",
+      "https://portfolio-bball.herokuapp.com/api/v1/portfolios",
       portfolioData,
       setAuthHeader()
     )
@@ -57,7 +57,9 @@ export const createPortfolio = async portfolioData => {
 export const updatePortfolio = async portfolioData => {
   return await axios
     .patch(
-      `http://localhost:3000/api/v1/portfolios/${portfolioData._id}`,
+      `https://portfolio-bball.herokuapp.com/api/v1/portfolios/${
+        portfolioData._id
+      }`,
       portfolioData,
       setAuthHeader()
     )
@@ -69,14 +71,14 @@ export const updatePortfolio = async portfolioData => {
 
 export const getPortfolioById = async id => {
   return await axiosInstance
-    .get(`http://localhost:3000/api/v1/portfolios/${id}`)
+    .get(`https://portfolio-bball.herokuapp.com/api/v1/portfolios/${id}`)
     .then(response => response.data);
 };
 
 export const deletePortfolio = portfolioId => {
   return axios
     .delete(
-      `http://localhost:3000/api/v1/portfolios/${portfolioId}`,
+      `https://portfolio-bball.herokuapp.com/api/v1/portfolios/${portfolioId}`,
       setAuthHeader()
     )
     .then(response => response.data);
@@ -87,7 +89,7 @@ export const deletePortfolio = portfolioId => {
 export const createBlog = (blogData, lockId) => {
   return axios
     .post(
-      `http://localhost:3000/api/v1/blogs?lockId=${lockId}`,
+      `https://portfolio-bball.herokuapp.com/api/v1/blogs?lockId=${lockId}`,
       blogData,
       setAuthHeader()
     )
@@ -97,25 +99,28 @@ export const createBlog = (blogData, lockId) => {
 
 export const getBlogById = blogId => {
   return axios
-    .get(`http://localhost:3000/api/v1/blogs/${blogId}`)
+    .get(`https://portfolio-bball.herokuapp.com/api/v1/blogs/${blogId}`)
     .then(response => response.data);
 };
 
 export const getBlogs = async req => {
   return await axios
-    .get("http://localhost:3000/api/v1/blogs")
+    .get("https://portfolio-bball.herokuapp.com/api/v1/blogs")
     .then(response => response.data);
 };
 
 export const getBlogBySlug = async slug => {
   return await axios
-    .get(`http://localhost:3000/api/v1/blogs/s/${slug}`)
+    .get(`https://portfolio-bball.herokuapp.com/api/v1/blogs/s/${slug}`)
     .then(response => response.data);
 };
 
 export const getUserBlogs = async req => {
   return await axios
-    .get("http://localhost:3000/api/v1/blogs/me", setAuthHeader(req))
+    .get(
+      "https://portfolio-bball.herokuapp.com/api/v1/blogs/me",
+      setAuthHeader(req)
+    )
     .then(response => response.data)
     .catch(error => {
       return rejectPromise(error);
@@ -125,7 +130,7 @@ export const getUserBlogs = async req => {
 export const updateBlog = async (blogData, id) => {
   return await axios
     .patch(
-      `http://localhost:3000/api/v1/blogs/${id}`,
+      `https://portfolio-bball.herokuapp.com/api/v1/blogs/${id}`,
       blogData,
       setAuthHeader()
     )
@@ -137,7 +142,10 @@ export const updateBlog = async (blogData, id) => {
 
 export const deleteBlog = blogId => {
   return axios
-    .delete(`http://localhost:3000/api/v1/blogs/${blogId}`, setAuthHeader())
+    .delete(
+      `https://portfolio-bball.herokuapp.com/api/v1/blogs/${blogId}`,
+      setAuthHeader()
+    )
     .then(response => {
       response.data;
     })
