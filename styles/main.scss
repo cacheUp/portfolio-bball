@@ -10,11 +10,11 @@
 
 @import "./slate-editor";
 
-.montserrat-loaded {
-  html,
-  body {
-    font-family: "Montserrat";
-  }
+html,
+body {
+  font-family: "Montserrat", "Helvetica";
+  height: 100%;
+  width: 100%;
 }
 
 .clickable {
