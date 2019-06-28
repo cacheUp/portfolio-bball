@@ -90,7 +90,6 @@ class Index extends React.Component {
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
                   <h1>
-                    {console.log(this.props.auth)}
                     {isAuthenticated && (
                       <span>
                         <b>{user.name}</b>
