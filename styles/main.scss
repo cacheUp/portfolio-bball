@@ -1,5 +1,6 @@
-@import "./shared/mixins";
 @import "./shared/fonts";
+@import "./shared/mixins";
+
 @import "./shared/colors";
 @import "./index";
 @import "./portfolios";
@@ -10,11 +11,13 @@
 
 @import "./slate-editor";
 
-html,
-body,
-a {
-  font-family: "Montserrat";
+.montsserrat-loaded {
+  html,
+  body {
+    font-family: "Montserrat";
+  }
 }
+
 .clickable {
   cursor: pointer;
 }
