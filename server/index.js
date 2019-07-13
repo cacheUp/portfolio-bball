@@ -1,5 +1,5 @@
 const express = require("express");
-const compression = require("compression");
+var compression = require("compression");
 const path = require("path");
 const next = require("next");
 const routes = require("../routes");
@@ -29,7 +29,6 @@ app
   .then(() => {
     const server = express();
     server.use(compression());
-    server.use(express.json());
     server.use(bodyParser.json());
 
     server.use("/api/v1/books", bookRoutes);
