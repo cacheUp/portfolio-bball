@@ -1,6 +1,8 @@
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
-const namespace = process.env.BASE_URL;
+const config = require("../config");
+
+const namespace = config.NAMESPACE;
 
 exports.checkJWT = jwt({
   secret: jwksRsa.expressJwtSecret({
@@ -16,7 +18,7 @@ exports.checkJWT = jwt({
 
 exports.checkRole = role => (req, res, next) => {
   const user = req.user;
-  if (user && user[namespace + "/role"] === role) {
+  if (user && user[namespace + "/role"] && user[namespace + "/role"] === role) {
     next();
   } else {
     res.status(401).send({
