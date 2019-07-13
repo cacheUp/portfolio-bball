@@ -40,11 +40,6 @@ const BaseLayout = props => {
           content="My name is Bradley Ball and I am a software engineer. I love solving problems and collaberating with teammates to get the job done. React is my favorite frontend framework and nodejs is my preferred backend technology."
         />
         <link rel="icon" type="image/ico" href="/static/favicon.ico" />
-        <script src="https://kit.fontawesome.com/b682f54eb6.js" />
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
-        />
       </Head>
       <div className="layout-container">
         <Header
