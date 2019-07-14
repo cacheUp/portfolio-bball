@@ -62,7 +62,7 @@ class Auth {
     const auth = this.auth0;
 
     auth.logout({
-      returnTo: "",
+      returnTo: process.env.BASE_URL,
       clientId: CLIENT_ID
     });
   }
