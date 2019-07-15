@@ -2,7 +2,7 @@ import React from "react";
 import BaseLayout from "../layouts/BaseLayout";
 import BasePage from "../shared/BasePage";
 
-const namespace = "https://portfolio-bball.herokuapp.com/";
+const namespace = "https://www.bradleyball.dev/";
 
 export default role => Component =>
   class withAuth extends React.Component {
