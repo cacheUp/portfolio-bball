@@ -11,7 +11,10 @@ const BaseLayout = props => {
     <React.Fragment>
       <Head>
         <title>{title}</title>
-
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no"
+        ></meta>
         <meta
           name="description"
           content="My name is Bradley Ball and I am a software engineer. I love solving problems and collaberating with teammates to get the job done. React is my favorite frontend framework and nodejs is my preferred backend technology."
