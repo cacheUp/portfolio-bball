@@ -47,13 +47,36 @@ class PortfolioCardDetail extends React.Component {
             })}
           </ModalHeader>
           <ModalBody>
-            <div>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between"
+              }}
+            >
               <ReactPlayer
                 width="450px"
                 url="https://www.youtube.com/watch?v=ragtQLZW3po"
-                playing
                 controls={true}
               />
+
+              <div>
+                <h2 style={{ fontSize: "20px", textAlign: "center" }}>
+                  Description
+                </h2>
+                <p className="modal-description">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
             </div>
           </ModalBody>
           <ModalFooter>

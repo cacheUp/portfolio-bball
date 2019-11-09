@@ -65,4 +65,15 @@
   }
 }
 
+.modal-description {
+  text-align: "center";
+  overflow-y: scroll;
+  width: 300px;
+  height: 30vh;
+  @media only screen and (max-width: 990px) {
+    width: 100%;
+    height: 20vh;
+  }
+}
+
 // --------- PORTFOLIO PAGE -------------
