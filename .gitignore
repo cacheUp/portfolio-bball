@@ -2,6 +2,7 @@
 /.next
 /server/.next
 /server/config/dev
+dev.js
 
 /server/services/dbConfig.js
 /env-config.js

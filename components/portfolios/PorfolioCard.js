@@ -1,5 +1,12 @@
 import React from "react";
-import { Card, CardHeader, CardBody, CardText, CardTitle } from "reactstrap";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardText,
+  CardTitle,
+  CardImg
+} from "reactstrap";
 import PortfolioCardDetail from "./PortfolioCardDetail";
 
 export default class PortfolioCard extends React.Component {
@@ -26,19 +33,12 @@ export default class PortfolioCard extends React.Component {
           isOpen={isOpen}
         />
         <Card className="portfolio-card">
-          <CardHeader className="portfolio-card-header">
-            {portfolio.position}
-          </CardHeader>
-          <CardBody>
-            <p className="portfolio-card-city"> {portfolio.location} </p>
-            <CardTitle className="portfolio-card-title">
-              {portfolio.title}
-            </CardTitle>
-            <CardText className="portfolio-card-text">
-              {portfolio.description}
-            </CardText>
-            <div className="readMore"> {children} </div>
-          </CardBody>
+          {/* <CardHeader className="portfolio-card-header">Geopins</CardHeader> */}
+
+          <CardImg
+            src="../../static/images/geopins.png"
+            className="portfolio-img"
+          />
         </Card>
       </span>
     );
