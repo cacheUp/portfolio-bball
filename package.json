@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-jerga",
+  "name": "portfolio-brad",
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
@@ -7,7 +7,7 @@
     "dev": "nodemon server/index.js",
     "build": "next build",
     "start": "NODE_ENV=production node server/index.js",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run dev"
   },
   "keywords": [],
   "author": "",
