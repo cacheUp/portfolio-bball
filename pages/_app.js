@@ -37,6 +37,7 @@ export default class MyApp extends App {
     return (
       <Container>
         <ToastContainer />
+        {console.log(auth)}
         <Component {...pageProps} auth={auth} />
       </Container>
     );

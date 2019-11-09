@@ -49,25 +49,8 @@ class Portfolios extends React.Component {
     const { isAuthenticated, isSiteOwner } = this.props.auth;
     return portfolios.map((portfolio, index) => {
       return (
-        <Col md="4" key={index}>
-          <PortfolioCard portfolio={portfolio}>
-            {isAuthenticated && isSiteOwner && (
-              <React.Fragment>
-                <Button
-                  onClick={e => this.navigateToEdit(portfolio._id, e)}
-                  color="warning"
-                >
-                  Edit
-                </Button>{" "}
-                <Button
-                  onClick={e => this.displayDeleteWarning(portfolio._id, e)}
-                  color="danger"
-                >
-                  Delete
-                </Button>
-              </React.Fragment>
-            )}
-          </PortfolioCard>
+        <Col md="6" key={index}>
+          <PortfolioCard portfolio={portfolio}></PortfolioCard>
         </Col>
       );
     });
@@ -78,19 +61,7 @@ class Portfolios extends React.Component {
     const { isAuthenticated, isSiteOwner } = this.props.auth;
     return (
       <BaseLayout title="Bradley Ball - View My Projects" {...this.props.auth}>
-        <BasePage className="portfolio-page" title="I am Portfolios Page">
-          {isAuthenticated && isSiteOwner && (
-            <Button
-              onClick={() => {
-                Router.pushRoute("/portfolios/new");
-              }}
-              color="success"
-              className="create-port-btn"
-            >
-              {" "}
-              create portfolio
-            </Button>
-          )}
+        <BasePage className="portfolio-page">
           <Row>{this.renderPortfolios(portfolios)}</Row>
         </BasePage>
       </BaseLayout>

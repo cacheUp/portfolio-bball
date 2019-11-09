@@ -2,6 +2,7 @@ import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/shared/BasePage";
 import { Row, Col } from "reactstrap";
+import { Photo } from "../components/Photo";
 
 class About extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class About extends React.Component {
         <BasePage className="about-page">
           {" "}
           <Row className="mt-5">
+            <Photo />
             <Col md="6">
               <div className="left-side">
                 <h1 className="title fadein">Hello, Welcome</h1>
