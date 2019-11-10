@@ -1,47 +1,40 @@
 import React from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import moment from "moment";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import Button from "@material-ui/core/Button";
+import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import ReactPlayer from "react-player";
+import { tagArr } from "./portfolioData";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LanguageIcon from "@material-ui/icons/Language";
 
 class PortfolioCardDetail extends React.Component {
   state = {
-    chipData: [
-      { key: 0, label: "Angular" },
-      { key: 1, label: "jQuery" },
-      { key: 2, label: "Polymer" },
-      { key: 3, label: "React" },
-      { key: 4, label: "Vue.js" },
-      { key: 0, label: "Angular" },
-      { key: 1, label: "jQuery" },
-      { key: 2, label: "Polymer" },
-      { key: 3, label: "React" },
-      { key: 4, label: "Vue.js" }
-    ]
+    chipData: tagArr
   };
 
   render() {
     const { isOpen, toggle, portfolio } = this.props;
     return (
       <div>
-        <Modal isOpen={isOpen} toggle={toggle} size="lg">
-          <ModalHeader toggle={toggle} style={{ background: "#ABB2B9" }}>
-            <span
-              style={{
-                display: "grid",
-                justifyContent: "center",
-                fontSize: "25px"
-              }}
-            >
-              TECH STACK
-            </span>
+        <Modal
+          isOpen={isOpen}
+          toggle={toggle}
+          size="lg"
+          className="modal-wrapper"
+          modalClassName="modal-wrapper"
+        >
+          <ModalHeader toggle={toggle} className="portfolio-modal-header">
+            <span className="tech-stack-header">TECH STACK</span>
             {this.state.chipData.map((data, index) => {
               return (
                 <Chip
-                  color="secondary"
-                  key={data.key}
-                  label={data.label}
-                  style={{ marginLeft: "5px" }}
+                  style={{ marginLeft: "9px", marginBottom: "5px" }}
+                  avatar={
+                    <Avatar alt="Natacha" variant="rounded" src={data[1]} />
+                  }
+                  label={data[0]}
+                  size="extra-small"
                 />
               );
             })}
@@ -61,7 +54,13 @@ class PortfolioCardDetail extends React.Component {
               />
 
               <div>
-                <h2 style={{ fontSize: "20px", textAlign: "center" }}>
+                <h2
+                  style={{
+                    fontSize: "30px",
+                    textAlign: "center",
+                    fontWeight: "bold"
+                  }}
+                >
                   Description
                 </h2>
                 <p className="modal-description">
@@ -80,7 +79,21 @@ class PortfolioCardDetail extends React.Component {
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={toggle}>
+            <Button
+              variant="contained"
+              color="default"
+              startIcon={<LanguageIcon fontSize="large" />}
+            >
+              Link
+            </Button>
+            <Button
+              variant="contained"
+              color="default"
+              startIcon={<GitHubIcon fontSize="large" />}
+            >
+              Github
+            </Button>
+            <Button color="secondary" variant="contained" onClick={toggle}>
               Cancel
             </Button>
           </ModalFooter>

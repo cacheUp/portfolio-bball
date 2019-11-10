@@ -62,6 +62,15 @@ class Portfolios extends React.Component {
     return (
       <BaseLayout title="Bradley Ball - View My Projects" {...this.props.auth}>
         <BasePage className="portfolio-page">
+          <div className="portfolio-header-wrap">
+            <h2 className="portfolio-header fadein">
+              Welcome to my portfolio page
+            </h2>
+            <h4 className="portfolio-subheader fadein">
+              These are a hand full of my favorite personal/freelance projects
+              I've worked on for the last couple years
+            </h4>
+          </div>
           <Row>{this.renderPortfolios(portfolios)}</Row>
         </BasePage>
       </BaseLayout>
