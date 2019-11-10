@@ -19,6 +19,7 @@
   "dependencies": {
     "@emotion/styled": "^10.0.12",
     "@material-ui/core": "^4.6.0",
+    "@material-ui/icons": "^4.5.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "async-lock": "^1.2.0",
@@ -53,6 +54,8 @@
     "react-player": "^1.14.0",
     "react-toastify": "^5.2.1",
     "react-typed": "^1.0.9",
+    "react-window-dimensions": "^1.0.2",
+    "react-window-size": "^1.2.2",
     "reactstrap": "^6.5.0",
     "semantic-ui-react": "^0.88.1",
     "slate": "0.44.6",

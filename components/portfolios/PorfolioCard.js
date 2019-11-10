@@ -7,6 +7,7 @@ import {
   CardTitle,
   CardImg
 } from "reactstrap";
+import { tagArr } from "./portfolioData";
 import PortfolioCardDetail from "./PortfolioCardDetail";
 
 export default class PortfolioCard extends React.Component {
@@ -32,7 +33,7 @@ export default class PortfolioCard extends React.Component {
           portfolio={portfolio}
           isOpen={isOpen}
         />
-        <Card className="portfolio-card">
+        <Card className="portfolio-card fadein">
           {/* <CardHeader className="portfolio-card-header">Geopins</CardHeader> */}
 
           <CardImg
