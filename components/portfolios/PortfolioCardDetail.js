@@ -7,13 +7,17 @@ import ReactPlayer from "react-player";
 import { tagArr } from "./portfolioData";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LanguageIcon from "@material-ui/icons/Language";
+import windowDimensions from "react-window-dimensions";
 
 class PortfolioCardDetail extends React.Component {
   state = {
-    chipData: tagArr
+    chipData: tagArr,
+    width: 0,
+    height: 0
   };
 
   render() {
+    console.log(this.state);
     const { isOpen, toggle, portfolio } = this.props;
     return (
       <div>
@@ -34,7 +38,7 @@ class PortfolioCardDetail extends React.Component {
                     <Avatar alt="Natacha" variant="rounded" src={data[1]} />
                   }
                   label={data[0]}
-                  size="extra-small"
+                  size="medium"
                 />
               );
             })}
@@ -89,7 +93,7 @@ class PortfolioCardDetail extends React.Component {
             <Button
               variant="contained"
               color="default"
-              startIcon={<GitHubIcon fontSize="large" />}
+              startIcon={<GitHubIcon fontSize="small" />}
             >
               Github
             </Button>

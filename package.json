@@ -54,6 +54,8 @@
     "react-player": "^1.14.0",
     "react-toastify": "^5.2.1",
     "react-typed": "^1.0.9",
+    "react-window-dimensions": "^1.0.2",
+    "react-window-size": "^1.2.2",
     "reactstrap": "^6.5.0",
     "semantic-ui-react": "^0.88.1",
     "slate": "0.44.6",
