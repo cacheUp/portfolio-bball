@@ -36,10 +36,7 @@ export default class PortfolioCard extends React.Component {
         <Card className="portfolio-card fadein">
           {/* <CardHeader className="portfolio-card-header">Geopins</CardHeader> */}
 
-          <CardImg
-            src="../../static/images/geopins.png"
-            className="portfolio-img"
-          />
+          <CardImg src={portfolio.imgUrl} className="portfolio-img" />
         </Card>
       </span>
     );

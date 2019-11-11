@@ -39,6 +39,13 @@
     .portfolio-img {
       width: 100%;
       border-radius: 40px;
+      height: 369px;
+      @media only screen and (max-width: 990px) {
+        height: 100%;
+      }
+      @media only screen and (max-width: 767px) {
+        height: 100%;
+      }
     }
     .portfolio-card-header {
       visibility: visible;
@@ -99,9 +106,17 @@
   }
 }
 
-// .modal-wrapper {
-//   width: 900px;
-// }
+.modal-title {
+  text-align: center;
+}
+
+.modal-h2-title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 25px;
+}
 
 @keyframes fadein {
   from {

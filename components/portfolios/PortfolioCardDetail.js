@@ -7,17 +7,14 @@ import ReactPlayer from "react-player";
 import { tagArr } from "./portfolioData";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LanguageIcon from "@material-ui/icons/Language";
-import windowDimensions from "react-window-dimensions";
+import Link from "next/link";
 
 class PortfolioCardDetail extends React.Component {
   state = {
-    chipData: tagArr,
-    width: 0,
-    height: 0
+    chipData: tagArr
   };
 
   render() {
-    console.log(this.state);
     const { isOpen, toggle, portfolio } = this.props;
     return (
       <div>
@@ -30,20 +27,21 @@ class PortfolioCardDetail extends React.Component {
         >
           <ModalHeader toggle={toggle} className="portfolio-modal-header">
             <span className="tech-stack-header">TECH STACK</span>
-            {this.state.chipData.map((data, index) => {
+            {portfolio.tags.map((data, index) => {
               return (
                 <Chip
                   style={{ marginLeft: "9px", marginBottom: "5px" }}
                   avatar={
-                    <Avatar alt="Natacha" variant="rounded" src={data[1]} />
+                    <Avatar alt="Natacha" variant="rounded" src={data.link} />
                   }
-                  label={data[0]}
+                  label={data.name}
                   size="medium"
                 />
               );
             })}
           </ModalHeader>
           <ModalBody>
+            <h2 className="modal-h2-title">{portfolio.name}</h2>
             <div
               style={{
                 display: "flex",
@@ -51,12 +49,14 @@ class PortfolioCardDetail extends React.Component {
                 justifyContent: "space-between"
               }}
             >
-              <ReactPlayer
-                width="450px"
-                url="https://www.youtube.com/watch?v=ragtQLZW3po"
-                controls={true}
-              />
-
+              {portfolio.video !== null && (
+                <ReactPlayer
+                  width="450px"
+                  url={portfolio.video}
+                  controls={true}
+                  playing
+                />
+              )}
               <div>
                 <h2
                   style={{
@@ -67,36 +67,62 @@ class PortfolioCardDetail extends React.Component {
                 >
                   Description
                 </h2>
-                <p className="modal-description">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
+                <p
+                  className={
+                    portfolio.video !== null
+                      ? "modal-description"
+                      : "modal-description2"
+                  }
+                >
+                  {portfolio.description}
                 </p>
               </div>
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button
-              variant="contained"
-              color="default"
-              startIcon={<LanguageIcon fontSize="large" />}
-            >
-              Link
-            </Button>
-            <Button
-              variant="contained"
-              color="default"
-              startIcon={<GitHubIcon fontSize="small" />}
-            >
-              Github
-            </Button>
+            <a href={portfolio.deployUrl}>
+              {portfolio.deployUrl !== null && (
+                <Button
+                  variant="contained"
+                  color="default"
+                  startIcon={<LanguageIcon fontSize="large" />}
+                >
+                  Link
+                </Button>
+              )}
+            </a>
+            {portfolio.github.length === 1 ? (
+              <a href={portfolio.github[0]}>
+                <Button
+                  variant="contained"
+                  color="default"
+                  startIcon={<GitHubIcon fontSize="small" />}
+                >
+                  Github
+                </Button>
+              </a>
+            ) : (
+              <div>
+                <a href={portfolio.github[0]}>
+                  <Button
+                    variant="contained"
+                    color="default"
+                    startIcon={<GitHubIcon fontSize="small" />}
+                  >
+                    Frontend Repo
+                  </Button>
+                </a>
+                <a href={portfolio.github[1]}>
+                  <Button
+                    variant="contained"
+                    color="default"
+                    startIcon={<GitHubIcon fontSize="small" />}
+                  >
+                    Backend Repo
+                  </Button>
+                </a>
+              </div>
+            )}
             <Button color="secondary" variant="contained" onClick={toggle}>
               Cancel
             </Button>
