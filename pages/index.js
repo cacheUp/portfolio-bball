@@ -1,7 +1,7 @@
 import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import Typed from "react-typed";
-import { Button, Container, Row, Col } from "reactstrap";
+import { Button, ButtonGroup, Container, Row, Col } from "reactstrap";
 
 class Index extends React.Component {
   constructor(props) {
@@ -41,11 +41,12 @@ class Index extends React.Component {
         {...this.props.auth}
         headerType="index"
         title="Bradley Ball - Portfolio"
+        xxxx={true}
       >
         <div className="main-section">
-          <div className="background-image">
+          {/* <div className="background-image">
             <img src="/static/images/background-index.png" />
-          </div>
+          </div> */}
 
           <Container>
             <Row>
@@ -100,7 +101,7 @@ class Index extends React.Component {
                     through the years!
                   </h1>
                 </div>
-                <div>
+                <div className="self-typed">
                   <Typed
                     loop
                     typeSpeed={60}
@@ -114,8 +115,14 @@ class Index extends React.Component {
                     cursorChar="|"
                   />
                 </div>
-                <div className="hero-welcome-bio">
+                <div className="hero-welcome-bio index-btn-wrapper">
                   <h2>Let's take a look on my work.</h2>
+
+                  <div className="">
+                    <Button className="index-btn">Portfolio</Button>
+                    <Button className="index-btn">Resume</Button>
+                    <Button className="index-btn">Contact</Button>
+                  </div>
                 </div>
               </Col>
             </Row>

@@ -72,6 +72,7 @@ class Portfolios extends React.Component {
               I've worked on for the last couple years
             </h4>
           </div>
+
           <Row>{this.renderPortfolios(portfolios)}</Row>
         </BasePage>
       </BaseLayout>
