@@ -7,6 +7,7 @@ import axios from "axios";
 import { Row, Col, Button } from "reactstrap";
 import { getPortfolios, deletePortfolio } from "../actions";
 import PortfolioCard from "../components/portfolios/PorfolioCard";
+import { portfolioData } from "../components/portfolios/portfolioData";
 
 class Portfolios extends React.Component {
   static async getInitialProps() {
@@ -47,7 +48,7 @@ class Portfolios extends React.Component {
 
   renderPortfolios(portfolios) {
     const { isAuthenticated, isSiteOwner } = this.props.auth;
-    return portfolios.map((portfolio, index) => {
+    return portfolioData.map((portfolio, index) => {
       return (
         <Col md="6" key={index}>
           <PortfolioCard portfolio={portfolio}></PortfolioCard>
