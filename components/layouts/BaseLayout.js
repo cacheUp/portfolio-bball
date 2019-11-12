@@ -3,9 +3,18 @@ import Header from "../shared/Header";
 import Head from "next/head";
 
 const BaseLayout = props => {
-  const { className, children, isAuthenticated, user, isSiteOwner } = props;
+  const {
+    className,
+    children,
+    isAuthenticated,
+    user,
+    isSiteOwner,
+    xxxx
+  } = props;
   const headerType = props.headerType || "default";
   const title = props.title || "Bradley Ball";
+  const background = xxxx || false;
+  console.log(background);
 
   return (
     <React.Fragment>
@@ -42,7 +51,11 @@ const BaseLayout = props => {
           rel="stylesheet"
         />
       </Head>
-      <div className="layout-container">
+      <div
+        className={
+          background ? "layout-container background-img" : "layout-container"
+        }
+      >
         <Header
           className={`port-nav-${headerType}`}
           isAuthenticated={isAuthenticated}
