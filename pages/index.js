@@ -21,6 +21,7 @@ class Index extends React.Component {
     ];
   }
   componentDidMount() {
+    //hey
     this.animateCard();
   }
 
