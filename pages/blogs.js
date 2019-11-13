@@ -78,11 +78,19 @@ class Blogs extends React.Component {
                   <ul className="list-inline text-center">
                     <li className="list-inline-item">
                       <a
+                        style={{ color: "black" }}
+                        className="index-icon"
                         target="_blank"
                         href="https://stackoverflow.com/users/11483018/brad-ball"
                       >
-                        <span className="fa-stack fa-lg">
-                          <i className="fas fa-circle fa-stack-2x" />
+                        <span
+                          className="fa-stack fa-lg"
+                          style={{ color: "black" }}
+                        >
+                          <i
+                            className="fas fa-circle fa-stack-2x"
+                            style={{ color: "black" }}
+                          />
                           <i className="fab fa-stack-overflow fa-stack-1x fa-inverse" />
                         </span>
                       </a>

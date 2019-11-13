@@ -1,4 +1,6 @@
 import React from "react";
+import GitHubIcon from "@material-ui/icons";
+
 import Link from "next/link";
 import {
   Collapse,
@@ -134,20 +136,41 @@ export default class Header extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+              {/* <NavItem className="port-navbar-item">
+                <a
+                  target="_blank"
+                  href="https://stackoverflow.com/users/11483018/brad-ball"
+                >
+                  <span className="fa-stack fa-lg">
+                    <i className="fas fa-circle fa-stack-2x" />
+                    <i className="fab fa-stack-overflow fa-stack-1x fa-inverse" />
+                  </span>
+                </a>
+              </NavItem>
+
+              <NavItem className="port-navbar-item">
+                <a target="_blank" href="https://github.com/cacheUp">
+                  <span className="fa-stack fa-lg">
+                    <i className="fas fa-circle fa-stack-2x" />
+                    <i className="fab fa-github fa-stack-1x fa-inverse" />
+                  </span>
+                </a>
+              </NavItem> */}
+
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/" title="Home" />
               </NavItem>
-              <NavItem className="port-navbar-item">
+              {/* <NavItem className="port-navbar-item">
                 <BsNavLink route="/about" title="About" />
-              </NavItem>
+              </NavItem> */}
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/portfolios" title="Portfolio" />
               </NavItem>
 
-              {this.renderBlogMenu()}
+              {/* {this.renderBlogMenu()} */}
 
               <NavItem className="port-navbar-item">
-                <BsNavLink route="/cv" title="Cv" />
+                <BsNavLink route="/cv" title="Resume" />
               </NavItem>
               {!isAuthenticated && (
                 <NavItem className="port-navbar-item">
@@ -162,6 +185,11 @@ export default class Header extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
+        {/* <style jsx>
+          {`
+            @import url("https://use.fontawesome.com/releases/v5.5.0/css/all.css");
+          `}
+        </style> */}
       </div>
     );
   }

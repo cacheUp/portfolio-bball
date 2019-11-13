@@ -2,6 +2,7 @@ import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import Typed from "react-typed";
 import { Button, ButtonGroup, Container, Row, Col } from "reactstrap";
+import { Link } from "../routes";
 
 class Index extends React.Component {
   constructor(props) {
@@ -119,9 +120,15 @@ class Index extends React.Component {
                   <h2>Let's take a look on my work.</h2>
 
                   <div className="">
-                    <Button className="index-btn">Portfolio</Button>
-                    <Button className="index-btn">Resume</Button>
-                    <Button className="index-btn">Contact</Button>
+                    <Link route="/portfolios">
+                      <a>
+                        <Button className="index-btn">Portfolio</Button>
+                      </a>
+                    </Link>
+                    <Link route="/cv">
+                      <Button className="index-btn">Resume</Button>
+                    </Link>
+                    {/* <Button className="index-btn">Contact</Button> */}
                   </div>
                 </div>
               </Col>

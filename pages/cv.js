@@ -14,13 +14,13 @@ class Cv extends React.Component {
               <div className="cv-title">
                 <a
                   className="btn btn-success"
-                  download="bradley_cv.pdf"
-                  href="/static/bradley_cv.pdf"
+                  download="bradley_resume.pdf"
+                  href="/static/bradley_resume.pdf"
                 >
                   Download
                 </a>
                 <iframe
-                  src="/static/bradley_cv.pdf"
+                  src="/static/bradley_resume.pdf"
                   style={{ width: "100%", height: "800px" }}
                 />
               </div>
