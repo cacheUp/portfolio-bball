@@ -57,9 +57,10 @@ class Index extends React.Component {
                   <div className={`flipper ${isFlipping ? "isFlipping" : ""}`}>
                     <div className="front">
                       <div className="hero-section-content">
-                        <h2> Full Stack Web Developer </h2>
+                        <h2 className="card-h2"> Full Stack Web Developer </h2>
                         <div className="hero-section-content-intro">
-                          Have a look at my portfolio and job history.
+                          Have a look at my portfolio
+                          <br /> and job history..
                         </div>
                       </div>
                       <img
@@ -75,7 +76,8 @@ class Index extends React.Component {
                       <div className="hero-section-content">
                         <h2> Full Stack Web Developer </h2>
                         <div className="hero-section-content-intro">
-                          Have a look at my portfolio and job history..
+                          Have a look at my portfolio
+                          <br /> and job history..
                         </div>
                       </div>
                       <img
