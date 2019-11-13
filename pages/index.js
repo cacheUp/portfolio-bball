@@ -31,7 +31,7 @@ class Index extends React.Component {
   animateCard = () => {
     this.cardAnimationInterval = setInterval(() => {
       this.setState({ isFlipping: !this.state.isFlipping });
-    }, 10000);
+    }, 5000);
   };
   render() {
     const { isAuthenticated, user } = this.props.auth;
