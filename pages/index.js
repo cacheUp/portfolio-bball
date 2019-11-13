@@ -21,6 +21,7 @@ class Index extends React.Component {
     ];
   }
   componentDidMount() {
+    //hey
     this.animateCard();
   }
 
@@ -64,7 +65,7 @@ class Index extends React.Component {
                       <img
                         alt="guy prgramming welcom picture"
                         className="image"
-                        src="https://res.cloudinary.com/cloud-9/image/upload/v1573631073/portfolio-tags/section-1.jpg"
+                        src="/static/images/section-1.jpg"
                       />
                       <div className="shadow-custom">
                         <div className="shadow-inner"> </div>
@@ -80,7 +81,7 @@ class Index extends React.Component {
                       <img
                         alt="guy prgramming welcom picture"
                         className="image"
-                        src="https://res.cloudinary.com/cloud-9/image/upload/v1573631079/portfolio-tags/section-2.jpg"
+                        src="/static/images/section-2.jpg"
                       />
                       <div className="shadow-custom shadow-custom-2">
                         <div className="shadow-inner"> </div>
