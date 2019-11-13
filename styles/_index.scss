@@ -51,8 +51,8 @@ body {
 }
 
 .image {
-  width: 100%;
-  height: auto;
+  width: 80%;
+  height: 100%;
 }
 
 .hero-welcome-text > h1 {
@@ -128,7 +128,7 @@ body {
 }
 
 .shadow-custom {
-  width: 100%;
+  width: 80%;
   height: 100%;
   position: absolute;
   top: 0;
@@ -136,7 +136,7 @@ body {
   border: 2px solid #3bace5;
 
   .shadow-inner {
-    width: 100%;
+    width: 80%;
     height: 100%;
     box-shadow: -17px 13px 13px rgba(0, 0, 0, 0.09);
   }
@@ -145,6 +145,9 @@ body {
 .shadow-custom-2 {
   border: 2px solid #f37d49;
   box-shadow: -17px 13px 41px rgba(13, 78, 158, 0.3);
+}
+.hero-section-content-intro {
+  font-size: 14px;
 }
 
 .cover-1 {
