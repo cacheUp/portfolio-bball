@@ -10,6 +10,13 @@ import {
 } from "reactstrap";
 import Link from "next/link";
 
+const Login = () => {
+  return <span className="nav-link port-navbar-link">Login</span>;
+};
+const Logout = () => {
+  return <span className="nav-link port-navbar-link">Logout</span>;
+};
+
 const BsNavLink = props => {
   const { route, title } = props;
   return (
@@ -63,6 +70,12 @@ export default class Example extends React.Component {
               </NavItem>
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/cv" title="Cv" />
+              </NavItem>
+              <NavItem className="port-navbar-item">
+                <Login />
+              </NavItem>
+              <NavItem className="port-navbar-item">
+                <Logout />
               </NavItem>
             </Nav>
           </Collapse>
